@@ -1,0 +1,19 @@
+{
+  "name": "tutorials.ubuntu.com",
+  "version": "1.0.0",
+  "dependencies": {
+    "polymer-cli": {
+      "version": "~0.17.0",
+      "dependencies": {
+        "polymer-build": {
+          "version": "~0.4.1",
+          "dependencies": {
+            "sw-precache": {
+              "version": "~4.3.0"
+            }
+          }
+        }
+      }
+    }
+  }
+}
