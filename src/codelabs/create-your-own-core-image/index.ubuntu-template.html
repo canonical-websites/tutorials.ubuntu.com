@@ -183,9 +183,9 @@ refreshed: 2016-11-18 08:47:45 +0000 UTC</pre>
 <p>The gadget snap is a key snap for device boot, as it contains the description of the boot and file system layout, which is then used for image building. The gadget snap is also responsible for defining and manipulating the system properties which are specific to one or more devices (like default configuration for some services). You can thus have multiple devices with the exact same hardware, but different gadget snap for different level of use (beginner, intermediate, experts) or different kind of use (home router, enterprise configuration...).</p>
 <p>You can as well build your own gadget snap, upload it to the store after signing it, but here, we are going to reuse the existing one as well.</p>
 <h2>Model assertion</h2>
-<p>The model is a json file that specify which model you are building, what Ubuntu Core series you are tracking for which architecture, and what gadget and kernel snap you are using in your image creation for your device.</p>
+<p>The model is a json file that specifies which model you are building, what Ubuntu Core series you are tracking for which architecture, and what gadget and kernel snaps you are using in your image creation for your device.</p>
 <p>You can as well specify extra required snaps that will be installed by default on the image.</p>
-<p>An assertion is a digitally signed documents that express a fact or policy by a particular authority about a particular object in the snap universe. An assertion consists of a set of structured headers, which vary based on the type of assertion, an optional body (variable format, depends on type of assertion) and the signature.</p>
+<p>An assertion is a digitally signed document that expresses a fact or policy by a particular authority about a particular object in the snap universe. An assertion consists of a set of structured headers, which vary based on the type of assertion, an optional body (variable format, depends on type of assertion) and the signature.</p>
 <p>We are thus going to create a model json file, and then sign it with our authority account to create a model assertion that will be accepted by ubuntu-image.</p>
 <p>Let&#39;s create those keys for signing before diving into the model itself!</p>
 
