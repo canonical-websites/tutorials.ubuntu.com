@@ -44,7 +44,14 @@
         width: 98%;
       }
       input[type="search"]:focus {
-        color: #111;
+        border-color: var(--tertiary-text-color);
+        color: var(--tertiary-text-color);
+      }
+      paper-icon-button.search {
+        color: var(--color-mid-light);
+      }
+      paper-icon-button.search:hover {
+        color: var(--tertiary-text-color);
       }
       ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: var(--secondary-text-color);
@@ -190,7 +197,7 @@
         <div>
           <label class="accessibility-aid" for="edit-keys" hidden="hidden">Search</label>
           <input id="edit-keys" type="search" placeholder="Search tutorials" is="iron-input" bind-value="{{filterSearch}}" />
-          <paper-icon-button icon="search"></paper-icon-button>
+          <paper-icon-button class="search" icon="search"></paper-icon-button>
           <template is="dom-if" if="[[filterSearch]]">
             <h2 class="heading-results">
               <span class="heading-results__highlight">[[searchResultCount]]</span> search results for <span class="heading-results__highlight">[[filterSearch]]</span>
