@@ -75,24 +75,12 @@
       }
       @media only screen and (min-width: 768px) {
         .card-content {
-          height: 260px;
+          height: 220px;
         }
       }
       .meta {
         color: var(--secondary-text-color);
         font-size: 1em;
-      }
-      .meta--tags {
-        bottom: 0;
-        padding-right: 10px;
-        position: absolute;
-      }
-      .meta--tags .meta__tag:after {
-        content: ' ,';
-        display: inline-block;
-      }
-      .meta--tags .meta__tag:last-of-type:after {
-        content: '';
       }
     </style>
 
@@ -107,11 +95,6 @@
         <div class="card-content">
           <p class="meta"><time-pretty datetime="[[updated]]">[[updated]]</time-pretty></p>
           <p class="summary">[[summary]]</p>
-          <p class="meta meta--tags">
-            <template is="dom-repeat" items="[[tags]]">
-              <span class="meta__tag">[[item]]</span>
-            </template>
-          </p>
         </div>
         <div class="flex"></div>
         <div class="card-actions horizontal start-justified layout">
@@ -152,10 +135,6 @@
           computed: '_difficultyToName(difficulty)',
         },
         duration: Number,
-        tags: Array,
-        updated: {
-          type: String,
-        },
         url: String,
         currenturl: String,
         generateBackParameter: {
