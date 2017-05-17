@@ -1,0 +1,19 @@
+{
+  "name": "tutorials.ubuntu.com",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubuntudesign/tutorials.ubuntu.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ubuntudesign/tutorials.ubuntu.com/issues"
+  },
+  "homepage": "https://tutorials.ubuntu.com",
+  "scripts": {
+    "polymer": "./node_modules/polymer-cli/bin/polymer.js",
+    "build": "./node_modules/polymer-cli/bin/polymer.js build"
+  },
+  "devDependencies": {
+    "polymer-cli": "^0.17.0"
+  }
+}
