@@ -62,6 +62,69 @@
         /* Override images being forced at 100% width */
         width: auto;
       }
+      .subscribeForm {
+        text-align:center;
+        padding: 1em;
+      }
+      /* Sign up form */
+      #plusone {
+        width: 56px;
+        height: 56px;
+        font-size: 3.2em;
+        border-radius: 50px;
+        background-color: white;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      #form-content {
+        text-align: left;
+
+      }
+      #form-meta {
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        max-width: 350px;
+        margin: auto;
+        padding-top: 20px;
+        margin-top: 20px;
+        display: block;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      paper-button[type=submit]{
+        box-sizing: border-box;
+        font-size: 1.14286em;
+        margin-bottom: 0.75em;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background: #dd4814;
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0;
+        font-family: Ubuntu, Arial, 'libra sans', sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-font-smoothing: subpixel-antialiased;
+        -o-font-smoothing: subpixel-antialiased;
+        font-smoothing: subpixel-antialiased;
+        padding: 8px 14px;
+        width: 100%;
+        text-align: center;
+      }
+      input[type=input] {
+        border-radius: 2px;
+        background: #fff;
+        border: 1px solid #999;
+        display: block;
+        font-family: Ubuntu,Arial,"libra sans",sans-serif;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0.6956522em 0.869565em;
+        width:320px;
+      }
+
     </style>
 
     <app-route
@@ -156,6 +219,35 @@
         this._updateMetadata();
         const resp = e.detail.response;
         Polymer.dom(this.$.contentContainer).innerHTML = resp.replace(/CODELABURL/g, this.url);
+        for (i = 0; i < Polymer.dom(this.$.contentContainer).querySelectorAll('h2').length; i++) {
+            var h2Node = Polymer.dom(this.$.contentContainer).querySelectorAll('h2')[i];
+            if (h2Node.innerHTML == "Next steps") {
+                h2Node.outerHTML = '\
+                <div class="subscribeForm" >\
+                  <h3>How was your learning experience?</h3>\
+                  <div onMouseUp="this.childNodes[3].hidden ? this.childNodes[3].hidden=false : null;this.childNodes[1].hidden=true;">\
+                    <p><paper-button id="plusone">&#x1f44d;</paper-button>\
+                       <paper-button id="plusone">&#x1f44e;</paper-button></p>\
+                    <iron-form hidden="true" id="form-signup">\
+                      <div id="form-meta">\
+                        <span style="font-size:1.3em;">You can keep growing your skills!</span>\
+                        <br>\
+                        <span style="font-size:1em;">Sign up to be notified of new tutorials.</span>\
+                        <br>\
+                        <div id="form-content">\
+                          <br>\
+                          <label>Email address:  </label>\
+                          <input type="input" name="email" value=""><br>\
+                          <paper-button type="submit" value="Keep me posted">Keep me posted</paper-button>\
+                        </div>\
+                      </div>\
+                    </iron-form>\
+                  </div>\
+                </div>\
+                <h2>Next steps</h2>';
+            }
+        }
+
       },
 
       _codelaburl: function(codelabpath) {
