@@ -8,6 +8,8 @@
 <link rel="import" href="elements/tutorials-app-header.html">
 <link rel="import" href="elements/websocket-reloader.html">
 
+<link rel="import" href="error-404.html">
+
 <dom-module id="ubuntu-tutorials-app">
   <link rel="lazy-import" group="codelabs-index" href="codelabs-index.html">
   <link rel="lazy-import" group="codelabs-page" href="codelabs-page.html">
@@ -56,12 +58,15 @@
     <tutorials-app-header hidden="[[_isMainHeaderHidden(page)]]">
     </tutorials-app-header>
 
-    <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+    <iron-pages role="main" selected="[[page]]" attr-for-selected="name" fallback-selection="404">
       <section name="index">
         <codelabs-index id="page-index" route="[[subroute]]" codelabs="{{codelabs}}"></codelabs-index>
       </section>
       <section name="tutorial">
         <codelabs-page id="page-tutorial" route="[[subroute]]" codelabs="{{codelabs}}"></codelabs-page>
+      </section>
+      <section name="404">
+        <error-404 requested-page="[[page]]"></error-404>
       </section>
     </iron-pages>
 
@@ -80,6 +85,7 @@
         isLoading: Boolean,
         page: {
           type: String,
+          value: 'index',
           reflectToAttribute: true,
         },
         routeData: Object,
@@ -116,6 +122,13 @@
           hrefToImport,
           function loadPage() {
             this.page = page;
+          },
+          function errorPage(event) {
+            let httpCode = event.target.__error.status;
+            switch(httpCode) {
+              case 404:
+                this.page = '404';
+            }
           }
         );
       },
