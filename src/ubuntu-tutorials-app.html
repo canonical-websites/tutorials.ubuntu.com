@@ -125,12 +125,16 @@
           },
           function errorPage(event) {
             let httpCode = event.target.__error.status;
-            switch(httpCode) {
-              case 404:
-                this.page = '404';
-            }
+            this._loadErrorPage(httpCode);
           }
         );
+      },
+
+    _loadErrorPage: function _loadErrorPage(errorCode) {
+        switch(errorCode) {
+          case 404:
+            this.page = '404';
+        }
       },
 
       _isMainHeaderHidden: function(page) {
@@ -159,6 +163,13 @@
       },
 
     });
+
+    let el = document.querySelector('ubuntu-tutorials-app');
+    el.addEventListener('iron-ajax-error', function(request) {
+      let httpCode = request.detail.request.status;
+      this._loadErrorPage(httpCode);
+    });
+
   </script>
 
 </dom-module>
