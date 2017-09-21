@@ -102,9 +102,8 @@
 
       ready: function() {
         let el = document.querySelector('ubuntu-tutorials-app');
-        el.addEventListener('iron-ajax-error', function(request) {
-          let httpCode = request.detail.request.status;
-          this._loadErrorPage(httpCode);
+        el.addEventListener('iron-ajax-error', function(error) {
+          this._loadErrorPage();
         });
       },
 
@@ -131,18 +130,14 @@
           function loadPage() {
             this.page = page;
           },
-          function errorPage(event) {
-            let httpCode = event.target.__error.status;
-            this._loadErrorPage(httpCode);
+          function onImportError(event) {
+            this._loadErrorPage();
           }
         );
       },
 
-      _loadErrorPage: function _loadErrorPage(errorCode) {
-        switch(errorCode) {
-          case 404:
-            this.page = '404';
-        }
+      _loadErrorPage: function _loadErrorPage() {
+        this.page = '404';
       },
 
       _isMainHeaderHidden: function(page) {
