@@ -23,6 +23,7 @@
         font-family: 'Ubuntu', Helvetica, Arial;
         height: 100%;
         position: relative;
+        width: 100%;
 
         --paper-card-content: {
           padding: 0;
@@ -41,6 +42,18 @@
         min-height: 120px;
         color: #fff;
         border-radius: 2px 2px 0 0;
+      }
+
+      @media only screen and (min-width: 769px) and (max-width: 1012px) {
+        .header {
+          height: 160px;
+        }
+      }
+
+      @media only screen and (max-width: 769px) {
+        .header {
+          height: 120px;
+        }
       }
 
       .body {
@@ -68,8 +81,7 @@
       }
 
       .duration {
-        text-align: right;
-        width: 100%;
+        align-self: flex-end;
       }
 
       .card-actions {
@@ -92,6 +104,7 @@
         color: var(--secondary-text-color);
         font-size: 0.875em;
         white-space: nowrap;
+        flex-wrap: wrap;
       }
 
       .meta--tags {
@@ -112,6 +125,11 @@
       .duration__value {
         color: var(--primary-text-color);
       }
+
+      .layout.start-justified {
+        justify-content: space-between;
+      }
+
     </style>
 
     <paper-card>
