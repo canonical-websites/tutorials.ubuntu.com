@@ -23,6 +23,7 @@
         font-family: 'Ubuntu', Helvetica, Arial;
         height: 100%;
         position: relative;
+        width: 100%;
 
         --paper-card-content: {
           padding: 0;
@@ -68,8 +69,7 @@
       }
 
       .duration {
-        text-align: right;
-        width: 100%;
+        align-self: flex-end;
       }
 
       .card-actions {
@@ -92,6 +92,7 @@
         color: var(--secondary-text-color);
         font-size: 0.875em;
         white-space: nowrap;
+        flex-wrap: wrap;
       }
 
       .meta--tags {
@@ -112,6 +113,11 @@
       .duration__value {
         color: var(--primary-text-color);
       }
+
+      .layout.start-justified {
+        justify-content: space-between;
+      }
+
     </style>
 
     <paper-card>
