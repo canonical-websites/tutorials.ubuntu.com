@@ -15,6 +15,9 @@ published: 2017-06-29
 ## Overview
 Duration: 0:01
 
+Positive
+: Switch language: EN | [FR](tutorial-setting-up-lxd-1604-fr)
+
 [LXD](https://linuxcontainers.org/lxd) is a container hypervisor providing a ReST API to manage LXC containers.
 
 ![logo](images/containers.png)
