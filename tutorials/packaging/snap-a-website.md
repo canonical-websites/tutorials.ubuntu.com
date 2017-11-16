@@ -238,6 +238,9 @@ In your favorite editor, create a `package.json` file with the following content
   "scripts": {
     "start": "electron ."
   },
+  "devDependencies": {
+    "electron-builder": "^19.45.5"
+  },   
   "build": {
     "linux": {
       "target": ["dir"]
