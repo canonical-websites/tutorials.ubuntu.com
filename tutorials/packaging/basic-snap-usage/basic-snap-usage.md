@@ -79,16 +79,7 @@ $ sudo apt install snapd
 **Fedora**
 
 ```bash
-$ sudo dnf copr enable zyga/snapcore
 $ sudo dnf install snapd
-
-# enable the snapd systemd service:
-$ sudo systemctl enable --now snapd.service
-
-# SELinux support is in beta, so currently:
-$ sudo setenforce 0
-
-# to persist, edit /etc/selinux/config to set SELINUX=permissive and reboot.
 ```
 
 **Gentoo**
@@ -158,7 +149,7 @@ positive
 : Note: when you install the first snap, snapd will download the base OS snap (which includes the very minimal bits required apps in confinement and amounts to some megabytes). Consequently, your first snap download time can take a little bit longer than it will be in the future for any other snap.
 
 
-To run the command, simply type hello in the command line (which is a command provided by the `hello` snap:
+To run the command, simply type hello in the command line (which is a command provided by the `hello` snap):
 
 ```bash
 $ hello
@@ -319,7 +310,7 @@ By now you should have found snaps in the store, installed and updated them, cha
 [snap-openwrt feed]: https://github.com/teknoraver/snap-openwrt/blob/master/README.md
 [http://localhost:9000/]: http://localhost:9000/
 [Advanced snap usage]: https://tutorials.ubuntu.com/tutorial/advanced-snap-usage
-[Creating your first snap]: https://tutorials.ubuntu.com/tutorial/create-first-snap
+[Creating your first snap]: https://tutorials.ubuntu.com/tutorial/create-your-first-snap
 [snapcraft forum]: https://forum.snapcraft.io/
 [Snapcraft.io documentation]: http://snapcraft.io/docs/
 [contact us and the broader community]: http://snapcraft.io/community/
