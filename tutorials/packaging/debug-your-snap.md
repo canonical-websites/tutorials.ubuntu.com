@@ -18,18 +18,18 @@ Duration: 1:00
 
 Snaps are Linux packages you can install on a wide range of Linux distributions. They are installed from a centralized store and run in a confined sandbox. 
 
-The trouble with sandboxed apps is that they can be harder to debug that non-sandboxed (traditionally packaged) apps. This tutorial will take readers through common steps to debug a malfunctioning snap.
+The trouble with sandboxed apps is that they can be harder to debug than non-sandboxed (traditionally packaged) apps. This tutorial will take readers through common steps to debug a malfunctioning snap.
 
 ### What you’ll learn
 
-  - How to debug a snap without confinement.
-  - How to debug a confined snap.
+  - How to debug a snap under devmode confinement.
+  - How to debug a snap under strict/classic confinement.
 
 ### What you’ll need
 
-  - Any supported snap GNU/Linux distribution .
+  - Ubuntu 16.04
   - Some very basic knowledge of command line use, know how to edit files.
-  - Knowledge of using snapcraft to package a snap.
+  - Knowledge of using snapcraft to package a snap. If not, visit [here](https://tutorials.ubuntu.com/tutorial/create-your-first-snap) first.
 
 
 Survey
