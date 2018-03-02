@@ -5,7 +5,7 @@ The Polymer application that runs <https://tutorials.ubuntu.com>.
 For anyone wishing to contribute work or file issues, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 For technical details and help, go to [HACKING.md](HACKING.md)
-
+ 
 
 ## Running this site
 
