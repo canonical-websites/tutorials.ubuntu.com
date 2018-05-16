@@ -408,7 +408,7 @@ $ wc -l *.h *.cpp *.sh
 ```
 
 ## Step 3: Adding a launcher
-Duration: 4:00
+Duration: 3:00
 
 At the end of step 2 we could run egmde as a desktop and run and start Wayland based applications from a terminal. We could also select the keyboard layout and cusomize the wallpaper.
 
@@ -437,41 +437,12 @@ If you press Ctrl-Alt-A then the launcher appears on top of whatever you are cur
 
 That should be enough of a clue to get you started.
 
-### Other changes since last time
-There’s also a small change to the wallpaper introduced in the previous article, it is now possible to customize both the top and bottom colour for the gradient. This followed from some “corridor testing” by my wife who found the previous option and default colour unappealing.
-
-This allows a “better brighter wallpaper” (as well as my choice):
-
-![step 3.3](images/article-3_3.png)
-
-Here’s the corresponding .config file:
-
-```bash
-$ cat ~/.config/egmde.config 
-wallpaper-top=0x8080ff
-wallpaper-bottom=0x8080ff
-```
-
-Another small change is that I found a way to pick up the current keyboard and added that to the miral-desktop launch script so that it doesn’t need to be set by hand.
-
 ## Step 3: The code
 Duration: 0:30
 
-### The `Wallpaper`
-I’ll first deal quickly with the wallpaper changes these options are provided by:
-
-```c++
-    CommandLineOption{[&](auto& option) { wallpaper.top(option);},
-                      "wallpaper-top",    "Colour of wallpaper RGB", "0x000000"},
-    CommandLineOption{[&](auto& option) { wallpaper.bottom(option);},
-                      "wallpaper-bottom", "Colour of wallpaper RGB", "0x92006a"},
-```
-
-The corresponding changes to the Wallpaper class are easy to follow.
-
 ### The `Launcher`
 
-The main addition to the code os the “launcher”. I’ll concentrate on the changes to egmde.cpp as the Launcher class itself is a “legacy” Mir client. It is on my list to support “internal” Wayland clients in Mir, but that hasn’t happened yet.
+The main addition to the code is the “launcher”. I’ll concentrate on the changes to egmde.cpp as the Launcher class itself is a “legacy” Mir client. It is on my list to support “internal” Wayland clients in Mir, but that hasn’t happened yet.
 The first update to the main program is adding this:
 
 ```c++
@@ -533,6 +504,40 @@ Finally, as promised, these are added to the `run_with()` list which now looks a
             ...
         });
 ```
+
+## Other changes since step 2
+Duration: 1:00
+
+### Better wallpaper
+There’s also a small change to the wallpaper introduced in the previous article, it is now possible to customize both the top and bottom colour for the gradient. This followed from some “corridor testing” by my wife who found the previous option and default colour unappealing.
+
+This allows a “better brighter wallpaper” (as well as my choice):
+
+![step 3.3](images/article-3_3.png)
+
+Here’s the corresponding .config file:
+
+```bash
+$ cat ~/.config/egmde.config 
+wallpaper-top=0x8080ff
+wallpaper-bottom=0x8080ff
+```
+
+### Better keymap
+
+Another small change is that I found a way to pick up the current keyboard and added that to the miral-desktop launch script so that it doesn’t need to be set by hand.
+
+### The code
+I’ll first deal quickly with the wallpaper changes these options are provided by:
+
+```c++
+    CommandLineOption{[&](auto& option) { wallpaper.top(option);},
+                      "wallpaper-top",    "Colour of wallpaper RGB", "0x000000"},
+    CommandLineOption{[&](auto& option) { wallpaper.bottom(option);},
+                      "wallpaper-bottom", "Colour of wallpaper RGB", "0x92006a"},
+```
+
+The corresponding changes to the Wallpaper class are easy to follow.
 
 ## A final word
 duration: 0:30
