@@ -11,7 +11,7 @@ author: Alan Griffiths <alan@octopull.co.uk>
 
 ---
 
-#  Egmde: A Wayland Desktop Environment Using Mir
+#  Egmde: Example Mir Desktop Environment (for Wayland)
 
 ## Overview
 
@@ -64,7 +64,7 @@ sudo dnf install weston qt5-qtwayland
 ## Step 1: A minimally viable shell
 Duration: 5:00
 
-To illustrate MirAL we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
+To illustrate Mir we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
 
 The full code for this example is available on github:
 
@@ -76,7 +76,7 @@ git checkout article-1
 
 *Naturally, the code is likely to evolve, so you will find other branches, but this branch goes with this stage.*
  
- Assuming that you’ve MirAL installed as described above you can now build egmde as follows:
+ Assuming that you’ve `libmiral-dev` installed as described above you can now build egmde as follows:
 
 ```bash
 mkdir build
@@ -98,7 +98,7 @@ You should see a blank screen with a `weston-terminal` session. From this you ca
 ## Step 1: The code
 Duration: 5:00
 
-A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into MirAL. The main program looks like this:
+A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into Mir. The main program looks like this:
 
 ```c++
 using namespace miral;
@@ -192,7 +192,7 @@ Duration: 5:00
 
 At the end of step 1 we could run egmde as a desktop and run and use Wayland based applications. Those of us in Europe (or elsewhere outside the USA) will soon notice that the keyboard layout has defaulted to US, so I’ll show how to fix that. And the black background is rather depressing, so I’ll show how to implement a simple wallpaper; and, finally, how to allow the user to customize the wallpaper.
 
-Along the way we’ll discuss the way the MirAL API works with us to make it easy to combine features.
+Along the way we’ll discuss the way the Mir API works with us to make it easy to combine features.
 
 Assuming you're still in the `build` directory used in step 1.
 
@@ -271,13 +271,13 @@ The `CommandLineOption` utility does a number of things, adds a configuration op
 
 The `StartupInternalClient` utility takes an “internal client” object (the wallpaper), waits for the server to start and then connects the client to the server, notifying the internal client object of both the client-side and server-side connection so that the server “knows” which client this is.
 
-By supplying customizations to the `run_with()` method as a list MirAL makes it easy to ensure the server is initialized before they are used and it gives the user flexibility in setting these objects up. For example, the wallpaper instance is created and referenced in a shutdown hook using `add_stop_callback()` before being used in the `run_with()` list. This is achived by declaring `run_with()` to take an initinalizer list:
+By supplying customizations to the `run_with()` method as a list Mir makes it easy to ensure the server is initialized before they are used and it gives the user flexibility in setting these objects up. For example, the wallpaper instance is created and referenced in a shutdown hook using `add_stop_callback()` before being used in the `run_with()` list. This is achived by declaring `run_with()` to take an initinalizer list:
 
 ```cpp
     auto run_with(std::initializer_list<std::function<void(::mir::Server&)>> options) -> int;
 ```
 
-Each of the supplied utilities “knows” how to integrate itself into the system using the `mir::Server`. User code should not need to do this directly (so part of the MirAL “abstraction” is to keep this as an opaque type).
+Each of the supplied utilities “knows” how to integrate itself into the system using the `mir::Server`. User code should not need to do this directly (so part of the Mir “abstraction layer” is to keep this as an opaque type).
 
 This approach has been proven effective by use in more advanced servers such as Unity8.
 
@@ -328,7 +328,7 @@ private:
 };
 ```
 
-In the current state of development MirAL “internal clients” can only use the legacy Mir cliient API (not Wayland) but that is adequate for our current purpose.
+In the current state of development Mir “internal clients” can only use the legacy Mir cliient API (not Wayland) but that is adequate for our current purpose.
 
 Most of the work happens in the create_surface() method that creates a surface that will never get focus (and therefore will never be raised above anything else):
 
