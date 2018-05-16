@@ -93,7 +93,7 @@ After this you can start a basic egmde based desktop. This will use VT4, so firs
 
 You should see a blank screen with a `weston-terminal` session. From this you can run commands and, in particular, start graphical applications. Perhaps `qtcreator` to examine the code?
 
-![step-1](article-1.png)
+![step-1](images/article-1.png)
 
 ## Step 1: The code
 Duration: 3:00
@@ -205,7 +205,7 @@ After this you can once again start a basic egmde based desktop:
 ```bash
 ./egmde-desktop
 ```
-![step-2](article-2.png)
+![step-2](images/article-2.png)
 
 You should see a simple gradient wallpaper with a weston-terminal session.
 
@@ -429,11 +429,11 @@ After this you can once again start a basic egmde based desktop:
 
 You should see a simple gradient wallpaper with simple instructions:
 
-![step 3.1](article-3_1.png)
+![step 3.1](images/article-3_1.png)
 
 If you press Ctrl-Alt-A then the launcher appears on top of whatever you are currently running (initially nothing) and updated instructions:
 
-![step 3.2](article-3_2.png)
+![step 3.2](images/article-3_2.png)
 
 That should be enough of a clue to get you started.
 
@@ -442,7 +442,7 @@ There’s also a small change to the wallpaper introduced in the previous articl
 
 This allows a “better brighter wallpaper” (as well as my choice):
 
-![step 3.3](article-3_3.png)
+![step 3.3](images/article-3_3.png)
 
 Here’s the corresponding .config file:
 
