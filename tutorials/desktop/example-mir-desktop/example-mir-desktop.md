@@ -61,7 +61,7 @@ sudo dnf install mir-devel
 sudo dnf install weston qt5-qtwayland
 ```
 
-## egmde step 1: A minimally viable shell
+## Step 1: A minimally viable shell
 Duration: 5:00
 
 To illustrate MirAL we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
@@ -93,9 +93,9 @@ After this you can start a basic egmde based desktop. This will use VT4, so firs
 
 You should see a blank screen with a `weston-terminal` session. From this you can run commands and, in particular, start graphical applications. Perhaps `qtcreator` to examine the code?
 
-![egmde-1](article-1.png)
+![step-1](article-1.png)
 
-## The example code
+## Step 1: The code
 Duration: 5:00
 
 A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into MirAL. The main program looks like this:
@@ -187,3 +187,222 @@ $ wc -l *.h *.cpp *.sh
   589 total
 ```
 
+## Step 2: keymap and wallpaper
+Duration: 5:00
+
+At the end of step 1 we could run egmde as a desktop and run and use Wayland based applications. Those of us in Europe (or elsewhere outside the USA) will soon notice that the keyboard layout has defaulted to US, so I’ll show how to fix that. And the black background is rather depressing, so I’ll show how to implement a simple wallpaper; and, finally, how to allow the user to customize the wallpaper.
+
+Along the way we’ll discuss the way the MirAL API works with us to make it easy to combine features.
+
+Assuming you're still in the `build` directory used in step 1.
+
+```bash
+git checkout article-2
+make
+```
+After this you can once again start a basic egmde based desktop:
+
+```bash
+./egmde-desktop
+```
+![step-2](article-2.png)
+
+You should see a simple gradient wallpaper with a weston-terminal session.
+
+You can set the wallpaper colour when starting the desktop by supplying a --wallpaper parameter, and the keyboard layout with --keymap like this:
+
+```bash
+./egmde --wallpaper 0xff3737 --keymap gb
+```
+
+Alternatively, these options can be specified in a config file:
+
+```bash
+$ cat ~/.config/egmde.config 
+wallpaper=0xff0d0
+keymap=gb
+```
+
+## Step 2: The `main()` code
+Duration: 3:00
+
+The previous code is largely unchanged. Just the egmde.cpp file is changed to add a couple of new headers and update the main program that looked like this:
+
+```cpp
+int main(int argc, char const* argv[])
+{
+    MirRunner runner{argc, argv};
+
+    return runner.run_with(
+        {
+            set_window_management_policy<egmde::WindowManagerPolicy>()
+        });
+}
+```
+
+Now it is:
+
+```cxx
+int main(int argc, char const* argv[])
+{
+    MirRunner runner{argc, argv};
+
+    egmde::Wallpaper wallpaper;
+
+    runner.add_stop_callback([&] { wallpaper.stop(); });
+
+    return runner.run_with(
+        {
+            Keymap{},
+            CommandLineOption{
+                std::ref(wallpaper), 
+                "wallpaper", 
+                "Colour of wallpaper RGB", 
+                "0x92006a"},
+            StartupInternalClient{"wallpaper", std::ref(wallpaper)},
+            set_window_management_policy<egmde::WindowManagerPolicy>()
+        });
+}
+```
+
+The `Keymap` utility handles setting the keymap, used like this it adds and uses a configuration option. (It can also be used to set a specific keymap on construction, or to change it dynamically while the shell is running.)
+
+The `CommandLineOption` utility does a number of things, adds a configuration option and calls it’s first argument with the configured value. To make this work nicely with an instance of egmde::Wallpaper the latter implements the function call operator to accept the wallpaper colour.
+
+The `StartupInternalClient` utility takes an “internal client” object (the wallpaper), waits for the server to start and then connects the client to the server, notifying the internal client object of both the client-side and server-side connection so that the server “knows” which client this is.
+
+By supplying customizations to the `run_with()` method as a list MirAL makes it easy to ensure the server is initialized before they are used and it gives the user flexibility in setting these objects up. For example, the wallpaper instance is created and referenced in a shutdown hook using `add_stop_callback()` before being used in the `run_with()` list. This is achived by declaring `run_with()` to take an initinalizer list:
+
+```cpp
+    auto run_with(std::initializer_list<std::function<void(::mir::Server&)>> options) -> int;
+```
+
+Each of the supplied utilities “knows” how to integrate itself into the system using the `mir::Server`. User code should not need to do this directly (so part of the MirAL “abstraction” is to keep this as an opaque type).
+
+This approach has been proven effective by use in more advanced servers such as Unity8.
+
+## Step 2: The `Wallpaper` code
+Duration: 4:00
+
+The `Wallpaper` class is what we’ll be implementing here, it uses a simple `Worker` class to pass work off to a separate thread. I’ll only show the header here as the methods are self-explanatory:
+
+```c++
+class Worker
+{
+public:
+    ~Worker();
+    void start_work();
+    void enqueue_work(std::function<void()> const& functor);
+    void stop_work();
+…
+};
+```
+
+### The Wallpaper class
+
+```c++
+class Wallpaper : Worker
+{
+public:
+    // These operators are the protocol for an "Internal Client"
+    void operator()(mir::client::Connection c) { start(std::move(c)); }
+    void operator()(std::weak_ptr<mir::scene::Session> const&){ }
+
+    // Used in initialization to set colour
+    void operator()(std::string const& option);
+
+    void start(mir::client::Connection connection);
+    void stop();
+
+private:
+    uint8_t colour[4] = { 0x0a, 0x24, 0x77, 0xFF };
+    std::mutex mutable mutex;
+    mir::client::Connection connection;
+    mir::client::Surface surface;
+    MirBufferStream* buffer_stream = nullptr;
+    mir::client::Window window;
+
+    void create_window();
+    void handle_event(MirWindow* window, MirEvent const* ev);
+    static void handle_event(MirWindow* window, MirEvent const* event, void* context);
+};
+```
+
+In the current state of development MirAL “internal clients” can only use the legacy Mir cliient API (not Wayland) but that is adequate for our current purpose.
+
+Most of the work happens in the create_surface() method that creates a surface that will never get focus (and therefore will never be raised above anything else):
+
+```c++
+void egmde::Wallpaper::create_window()
+{
+    unsigned width = 0;
+    unsigned height = 0;
+
+    DisplayConfig{connection}.for_each_output([&width, &height](MirOutput const* output)
+    {
+        if (!mir_output_is_enabled(output))
+            return;
+
+         width = std::max(width, mir_output_get_logical_width(output));
+         height = std::max(height, mir_output_get_logical_height(output));
+    });
+    
+    std::lock_guard<decltype(mutex)> lock{mutex};
+
+    surface = Surface{mir_connection_create_render_surface_sync(connection, width, height)};
+
+    buffer_stream = mir_render_surface_get_buffer_stream(surface, width, height, mir_pixel_format_xrgb_8888);
+
+    window = WindowSpec::for_gloss(connection, width, height)
+        .set_name("wallpaper")
+        .set_fullscreen_on_output(0)
+        .set_event_handler(&handle_event, this)
+        .add_surface(surface, width, height, 0, 0)
+        .create_window();
+
+    MirGraphicsRegion graphics_region;
+
+    mir_buffer_stream_get_graphics_region(buffer_stream, &graphics_region);
+
+    render_gradient(&graphics_region, colour);
+    mir_buffer_stream_swap_buffers_sync(buffer_stream);
+}
+```
+
+And the actual s/w rendering:
+
+```c++
+void render_gradient(MirGraphicsRegion* region, uint8_t* colour)
+{
+    char* row = region->vaddr;
+
+    for (int j = 0; j < region->height; j++)
+    {
+        auto* pixel = (uint32_t*)row;
+        uint8_t pattern_[4];
+        for (auto i = 0; i != 3; ++i)
+            pattern_[i] = (j*colour[i])/region->height;
+        pattern_[3] = colour[3];
+
+        for (int i = 0; i < region->width; i++)
+            memcpy(pixel + i, pattern_, sizeof pixel[i]);
+
+        row += region->stride;
+    }
+}
+```
+
+The remaining code isn’t shown here. It deals with startup, shutdown and changes to the display layout.
+
+For those that are keeping score:
+
+```bash
+$ wc -l *.h *.cpp *.sh
+   84 egwallpaper.h
+   88 egwindowmanager.h
+   45 egmde.cpp
+  205 egwallpaper.cpp
+  420 egwindowmanager.cpp
+   47 egmde-desktop.sh
+  889 total
+```
