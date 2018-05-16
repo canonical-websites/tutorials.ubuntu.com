@@ -1,6 +1,6 @@
 ---
 id: egmde
-summary: Learn to create a Wayland Desktop Environment using Mir
+summary: Learn how to create a Wayland Desktop Environment using Mir
 categories: desktop
 tags: tutorial, mir
 difficulty: 3
@@ -13,12 +13,11 @@ author: Alan Griffiths <alan@octopull.co.uk>
 
 #  Egmde: A Wayland Desktop Environment Using Mir
 
-## Introduction
+## Overview
 
 [Mir](https://mirserver.io) is a library designed to facilitate writing GUI shells for a range of platform from IoT and phones to desktops.
 
 This tutorial will take you through the development of an example desktop environment that supports Wayland applications.
-
 
 ### What you'll learn
 
@@ -29,6 +28,7 @@ You will learn how to employ the Mir API to produce a simple, but usable desktop
 You can follow the steps in this tutorial on any supported release of Ubuntu from 17.10 or on Fedora from release 28. *Unfortunately, the toolkit support for Wayland in Ubuntu 16.04LTS isn't sufficiently up to date for everything to work.*
 
 ## Preparation
+Duration: 5:00
 
 The code in this tutorial needs [Mir 0.31](https://community.ubuntu.com/t/mir-0-31-0-release/4637/6) or later. Mir 0.31 exists in Ubuntu 18.04 and Fedora 28 archives.
 
@@ -62,6 +62,7 @@ sudo dnf install weston qt5-qtwayland
 ```
 
 ## egmde step 1: A minimally viable shell
+Duration: 5:00
 
 To illustrate MirAL we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
 
@@ -92,7 +93,10 @@ After this you can start a basic egmde based desktop. This will use VT4, so firs
 
 You should see a blank screen with a `weston-terminal` session. From this you can run commands and, in particular, start graphical applications. Perhaps `qtcreator` to examine the code?
 
+![egmde-1](article-1.png)
+
 ## The example code
+Duration: 5:00
 
 A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into MirAL. The main program looks like this:
 
@@ -110,7 +114,7 @@ int main(int argc, char const* argv[])
 }
 ```
 
-Yes, you’ve guessed it: the egmde code is in `egmde::WindowManagerPolicy`. It looks like this:
+Yes, you’ve guessed it: the egmde specific code is in `egmde::WindowManagerPolicy`. The class looks like this:
 
 ```c++
 class WindowManagerPolicy : public CanonicalWindowManagerPolicy
