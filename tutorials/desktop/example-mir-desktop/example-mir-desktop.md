@@ -28,7 +28,7 @@ You will learn how to employ the Mir API to produce a simple, but usable desktop
 You can follow the steps in this tutorial on any supported release of Ubuntu from 17.10 or on Fedora from release 28. *Unfortunately, the toolkit support for Wayland in Ubuntu 16.04LTS isn't sufficiently up to date for everything to work.*
 
 ## Preparation
-Duration: 5:00
+Duration: 4:00
 
 The code in this tutorial needs [Mir 0.31](https://community.ubuntu.com/t/mir-0-31-0-release/4637/6) or later. Mir 0.31 exists in Ubuntu 18.04 and Fedora 28 archives.
 
@@ -62,7 +62,7 @@ sudo dnf install weston qt5-qtwayland
 ```
 
 ## Step 1: A minimally viable shell
-Duration: 5:00
+Duration: 4:00
 
 To illustrate Mir we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
 
@@ -96,7 +96,7 @@ You should see a blank screen with a `weston-terminal` session. From this you ca
 ![step-1](article-1.png)
 
 ## Step 1: The code
-Duration: 5:00
+Duration: 3:00
 
 A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into Mir. The main program looks like this:
 
@@ -188,7 +188,7 @@ $ wc -l *.h *.cpp *.sh
 ```
 
 ## Step 2: keymap and wallpaper
-Duration: 5:00
+Duration: 4:00
 
 At the end of step 1 we could run egmde as a desktop and run and use Wayland based applications. Those of us in Europe (or elsewhere outside the USA) will soon notice that the keyboard layout has defaulted to US, so I’ll show how to fix that. And the black background is rather depressing, so I’ll show how to implement a simple wallpaper; and, finally, how to allow the user to customize the wallpaper.
 
@@ -406,3 +406,137 @@ $ wc -l *.h *.cpp *.sh
    47 egmde-desktop.sh
   889 total
 ```
+
+## Step 3: Adding a launcher
+Duration: 4:00
+
+At the end of step 2 we could run egmde as a desktop and run and start Wayland based applications from a terminal. We could also select the keyboard layout and cusomize the wallpaper.
+
+In this article we provide an integrated “launcher” to start applications so that applications do not need to be launched from the terminal.
+
+Assuming you're still in the `build` directory used in step 1.
+
+```bash
+git checkout article-3
+make
+```
+
+After this you can once again start a basic egmde based desktop:
+
+```bash
+./egmde-desktop
+```
+
+You should see a simple gradient wallpaper with simple instructions:
+
+![step 3.1](article-3_1.png)
+
+If you press Ctrl-Alt-A then the launcher appears on top of whatever you are currently running (initially nothing) and updated instructions:
+
+![step 3.2](article-3_2.png)
+
+That should be enough of a clue to get you started.
+
+### Other changes since last time
+There’s also a small change to the wallpaper introduced in the previous article, it is now possible to customize both the top and bottom colour for the gradient. This followed from some “corridor testing” by my wife who found the previous option and default colour unappealing.
+
+This allows a “better brighter wallpaper” (as well as my choice):
+
+![step 3.3](article-3_3.png)
+
+Here’s the corresponding .config file:
+
+```bash
+$ cat ~/.config/egmde.config 
+wallpaper-top=0x8080ff
+wallpaper-bottom=0x8080ff
+```
+
+Another small change is that I found a way to pick up the current keyboard and added that to the miral-desktop launch script so that it doesn’t need to be set by hand.
+
+## Step 3: The code
+Duration: 0:30
+
+### The `Wallpaper`
+I’ll first deal quickly with the wallpaper changes these options are provided by:
+
+```c++
+    CommandLineOption{[&](auto& option) { wallpaper.top(option);},
+                      "wallpaper-top",    "Colour of wallpaper RGB", "0x000000"},
+    CommandLineOption{[&](auto& option) { wallpaper.bottom(option);},
+                      "wallpaper-bottom", "Colour of wallpaper RGB", "0x92006a"},
+```
+
+The corresponding changes to the Wallpaper class are easy to follow.
+
+### The `Launcher`
+
+The main addition to the code os the “launcher”. I’ll concentrate on the changes to egmde.cpp as the Launcher class itself is a “legacy” Mir client. It is on my list to support “internal” Wayland clients in Mir, but that hasn’t happened yet.
+The first update to the main program is adding this:
+
+```c++
+    ExternalClientLauncher external_client_launcher;
+    egmde::Launcher launcher{external_client_launcher};
+```
+
+*Note: If you look at the real code at the time of writing you’ll see there’s a bit of preprocessor magic to support the released version of Mir which doesn’t have ExternalClientLauncher. I’m going to ignore this (and another workaround for the lack of logind support) as these will be addressed by a Mir update in the near future.*
+
+### `main()`
+
+Next, there’s a piece of code or handling keyboard input and showing the launcher:
+
+```c++
+    auto const keyboard_shortcuts = [&](MirEvent const* event)
+        {
+            if (mir_event_get_type(event) != mir_event_type_input)
+                return false;
+
+            MirInputEvent const* input_event = mir_event_get_input_event(event);
+            if (mir_input_event_get_type(input_event) != mir_input_event_type_key)
+                return false;
+
+            MirKeyboardEvent const* kev = mir_input_event_get_keyboard_event(input_event);
+            if (mir_keyboard_event_action(kev) != mir_keyboard_action_down)
+                return false;
+
+            MirInputEventModifiers mods = mir_keyboard_event_modifiers(kev);
+            if (!(mods & mir_input_event_modifier_alt) || !(mods & mir_input_event_modifier_ctrl))
+                return false;
+
+            switch (mir_keyboard_event_scan_code(kev))
+            {
+            case KEY_A:
+                launcher.show();
+                return true;
+
+            case KEY_BACKSPACE:
+                runner.stop();
+                return true;
+
+            default:
+                return false;
+            }
+        };
+```
+
+This is a lambda that is later added to the Mir event processing and looks for either Ctrl-Alt-A or Ctrl-Alt-BkSp and shows the launcher or stops the runner accordingly.
+
+Finally, as promised, these are added to the `run_with()` list which now looks as follows:
+
+```c++
+    return runner.run_with(
+        {
+            ...
+            external_client_launcher,
+            StartupInternalClient{"launcher", std::ref(launcher)},
+            AppendEventFilter{keyboard_shortcuts},
+            ...
+        });
+```
+
+## A final word
+duration: 0:30
+
+The Mir "Abstraction Layer" API (libmiral) is designed so that keeping separate things separate is easy: the launcher code doesn’t have any inter-dependency with the wallpaper or the the window management code. So we could replace any of these without affecting the others.
+
+That makes it easy to understand the individual components and customise them to build a  server to suit your requirements.
