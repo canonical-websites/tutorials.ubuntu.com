@@ -15,7 +15,7 @@ author: Alan Griffiths <alan@octopull.co.uk>
 
 ## Overview
 
-[Mir](https://mirserver.io) is a library designed to facilitate writing GUI shells for a range of platform from IoT and phones to desktops.
+[Mir](https://mirserver.io) is a library designed to facilitate writing GUI shells for a range of platforms from IoT and phones to desktops.
 
 This tutorial will take you through the development of an example desktop environment that supports Wayland applications.
 
@@ -267,7 +267,7 @@ int main(int argc, char const* argv[])
 
 The `Keymap` utility handles setting the keymap, used like this it adds and uses a configuration option. (It can also be used to set a specific keymap on construction, or to change it dynamically while the shell is running.)
 
-The `CommandLineOption` utility does a number of things, adds a configuration option and calls it’s first argument with the configured value. To make this work nicely with an instance of egmde::Wallpaper the latter implements the function call operator to accept the wallpaper colour.
+The `CommandLineOption` utility does a number of things, adds a configuration option and calls its first argument with the configured value. To make this work nicely with an instance of egmde::Wallpaper the latter implements the function call operator to accept the wallpaper colour.
 
 The `StartupInternalClient` utility takes an “internal client” object (the wallpaper), waits for the server to start and then connects the client to the server, notifying the internal client object of both the client-side and server-side connection so that the server “knows” which client this is.
 
@@ -328,7 +328,7 @@ private:
 };
 ```
 
-In the current state of development Mir “internal clients” can only use the legacy Mir cliient API (not Wayland) but that is adequate for our current purpose.
+In the current state of development Mir “internal clients” can only use the legacy Mir client API (not Wayland) but that is adequate for our current purpose.
 
 Most of the work happens in the create_surface() method that creates a surface that will never get focus (and therefore will never be raised above anything else):
 
