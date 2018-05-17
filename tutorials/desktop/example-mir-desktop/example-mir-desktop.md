@@ -30,7 +30,11 @@ You can follow the steps in this tutorial on any supported release of Ubuntu fro
 ## Preparation
 Duration: 4:00
 
-The code in this tutorial needs [Mir 0.31](https://community.ubuntu.com/t/mir-0-31-0-release/4637/6) or later. Mir 0.31 exists in Ubuntu 18.04 and Fedora 28 archives.
+The code in this tutorial needs Mir 0.32 or later. Mir 0.32 exists in Ubuntu 18.04 and Fedora 28 archives.
+ 
+negative
+: This tutorial is written in anticipation of the Mir 0.32 release.
+Until then some features mentioned may require the development version from ppa:mir-team/dev.
 
 On Ubuntu, it is recommended to use the mir-team/release PPA which is available for all current releases of Ubuntu.
 
@@ -61,7 +65,7 @@ sudo dnf install mir-devel
 sudo dnf install weston qt5-qtwayland
 ```
 
-## Step 1: A minimally viable shell
+## A minimal shell: The basics
 Duration: 4:00
 
 To illustrate Mir we're going to review code from a (very simple) window manager. It runs on desktops, tablets and phones and supports keyboard, mouse and touch input. It will support applications using the GTK and Qt toolkits, SDL applications and (using Xwayland X11 applications.
@@ -93,14 +97,14 @@ After this you can start a basic egmde based desktop. This will use VT4, so firs
 
 You should see a blank screen with a `weston-terminal` session. From this you can run commands and, in particular, start graphical applications. Perhaps `qtcreator` to examine the code?
 
-![step-1](images/article-1.png)
+![A minimal shell](images/article-1.png)
 
-## Step 1: The code
+## A minimal shell: The code
 Duration: 3:00
 
 A lot of the functionality (default placement of windows, menus etc.) comes with Mir's `libmiral` library. For this exercise we have implemented one class and written a main function that injects it into Mir. The main program looks like this:
 
-```c++
+```cpp
 using namespace miral;
 
 int main(int argc, char const* argv[])
@@ -116,7 +120,7 @@ int main(int argc, char const* argv[])
 
 Yes, you’ve guessed it: the egmde specific code is in `egmde::WindowManagerPolicy`. The class looks like this:
 
-```c++
+```cpp
 class WindowManagerPolicy : public CanonicalWindowManagerPolicy
 {
 public:
@@ -144,7 +148,7 @@ private:
 
 These are the functions that it is necessary to implement for a minimal shell. I won't reproduce them all here, but this should give a flavor:
 
-```c++
+```cpp
 bool egmde::WindowManagerPolicy::handle_keyboard_event(MirKeyboardEvent const* event)
 {
     auto const action = mir_keyboard_event_action(event);
@@ -187,7 +191,7 @@ $ wc -l *.h *.cpp *.sh
   589 total
 ```
 
-## Step 2: keymap and wallpaper
+## Keymap and Wallpaper: The basics
 Duration: 4:00
 
 At the end of step 1 we could run egmde as a desktop and run and use Wayland based applications. Those of us in Europe (or elsewhere outside the USA) will soon notice that the keyboard layout has defaulted to US, so I’ll show how to fix that. And the black background is rather depressing, so I’ll show how to implement a simple wallpaper; and, finally, how to allow the user to customize the wallpaper.
@@ -205,44 +209,29 @@ After this you can once again start a basic egmde based desktop:
 ```bash
 ./egmde-desktop
 ```
-![step-2](images/article-2.png)
+![Keymap and Wallpaper](images/article-2.png)
 
 You should see a simple gradient wallpaper with a weston-terminal session.
 
-You can set the wallpaper colour when starting the desktop by supplying a --wallpaper parameter, and the keyboard layout with --keymap like this:
+You can set the wallpaper colour when starting the desktop by supplying a --wallpaper parameter like this:
 
 ```bash
-./egmde --wallpaper 0xff3737 --keymap gb
+./egmde --wallpaper 0xff3737
 ```
 
-Alternatively, these options can be specified in a config file:
+Alternatively, the wallpaper option can be specified in a config file:
 
 ```bash
 $ cat ~/.config/egmde.config 
 wallpaper=0xff0d0
-keymap=gb
 ```
 
-## Step 2: The `main()` code
+## Keymap and Wallpaper: The `main()` code
 Duration: 3:00
 
-The previous code is largely unchanged. Just the egmde.cpp file is changed to add a couple of new headers and update the main program that looked like this:
+The previous code is largely unchanged. Just the egmde.cpp file is changed to add a couple of new headers and update the main program now it is:
 
 ```cpp
-int main(int argc, char const* argv[])
-{
-    MirRunner runner{argc, argv};
-
-    return runner.run_with(
-        {
-            set_window_management_policy<egmde::WindowManagerPolicy>()
-        });
-}
-```
-
-Now it is:
-
-```cxx
 int main(int argc, char const* argv[])
 {
     MirRunner runner{argc, argv};
@@ -265,7 +254,7 @@ int main(int argc, char const* argv[])
 }
 ```
 
-The `Keymap` utility handles setting the keymap, used like this it adds and uses a configuration option. (It can also be used to set a specific keymap on construction, or to change it dynamically while the shell is running.)
+The `Keymap` utility handles setting the keymap, used like this it detects the current keymap and a "keymap" configuration option in case the user wishes to override the default. (It can also be used to set a specific keymap on construction, or to change it dynamically while the shell is running.)
 
 The `CommandLineOption` utility does a number of things, adds a configuration option and calls its first argument with the configured value. To make this work nicely with an instance of egmde::Wallpaper the latter implements the function call operator to accept the wallpaper colour.
 
@@ -281,12 +270,12 @@ Each of the supplied utilities “knows” how to integrate itself into the syst
 
 This approach has been proven effective by use in more advanced servers such as Unity8.
 
-## Step 2: The `Wallpaper` code
+## Keymap and Wallpaper: The `Wallpaper` code
 Duration: 4:00
 
 The `Wallpaper` class is what we’ll be implementing here, it uses a simple `Worker` class to pass work off to a separate thread. I’ll only show the header here as the methods are self-explanatory:
 
-```c++
+```cpp
 class Worker
 {
 public:
@@ -300,7 +289,7 @@ public:
 
 ### The Wallpaper class
 
-```c++
+```cpp
 class Wallpaper : Worker
 {
 public:
@@ -332,7 +321,7 @@ In the current state of development Mir “internal clients” can only use the 
 
 Most of the work happens in the create_surface() method that creates a surface that will never get focus (and therefore will never be raised above anything else):
 
-```c++
+```cpp
 void egmde::Wallpaper::create_window()
 {
     unsigned width = 0;
@@ -371,7 +360,7 @@ void egmde::Wallpaper::create_window()
 
 And the actual s/w rendering:
 
-```c++
+```cpp
 void render_gradient(MirGraphicsRegion* region, uint8_t* colour)
 {
     char* row = region->vaddr;
@@ -407,7 +396,7 @@ $ wc -l *.h *.cpp *.sh
   889 total
 ```
 
-## Step 3: Adding a launcher
+## Adding a launcher: The basics
 Duration: 3:00
 
 At the end of step 2 we could run egmde as a desktop and run and start Wayland based applications from a terminal. We could also select the keyboard layout and cusomize the wallpaper.
@@ -429,15 +418,15 @@ After this you can once again start a basic egmde based desktop:
 
 You should see a simple gradient wallpaper with simple instructions:
 
-![step 3.1](images/article-3_1.png)
+![Adding a launcher 1](images/article-3_1.png)
 
 If you press Ctrl-Alt-A then the launcher appears on top of whatever you are currently running (initially nothing) and updated instructions:
 
-![step 3.2](images/article-3_2.png)
+![Adding a launcher 2](images/article-3_2.png)
 
 That should be enough of a clue to get you started.
 
-## Step 3: The code
+## Adding a launcher: The code
 Duration: 0:30
 
 ### The `Launcher`
@@ -445,7 +434,7 @@ Duration: 0:30
 The main addition to the code is the “launcher”. I’ll concentrate on the changes to egmde.cpp as the Launcher class itself is a “legacy” Mir client. It is on my list to support “internal” Wayland clients in Mir, but that hasn’t happened yet.
 The first update to the main program is adding this:
 
-```c++
+```cpp
     ExternalClientLauncher external_client_launcher;
     egmde::Launcher launcher{external_client_launcher};
 ```
@@ -456,7 +445,7 @@ The first update to the main program is adding this:
 
 Next, there’s a piece of code or handling keyboard input and showing the launcher:
 
-```c++
+```cpp
     auto const keyboard_shortcuts = [&](MirEvent const* event)
         {
             if (mir_event_get_type(event) != mir_event_type_input)
@@ -494,7 +483,7 @@ This is a lambda that is later added to the Mir event processing and looks for e
 
 Finally, as promised, these are added to the `run_with()` list which now looks as follows:
 
-```c++
+```cpp
     return runner.run_with(
         {
             ...
@@ -505,15 +494,14 @@ Finally, as promised, these are added to the `run_with()` list which now looks a
         });
 ```
 
-## Other changes since step 2
+## Better wallpaper
 Duration: 1:00
 
-### Better wallpaper
-There’s also a small change to the wallpaper introduced in the previous article, it is now possible to customize both the top and bottom colour for the gradient. This followed from some “corridor testing” by my wife who found the previous option and default colour unappealing.
+There’s also a small change to the wallpaper introduced earlier, it is now possible to customize both the top and bottom colour for the gradient. This followed from some “corridor testing” by my wife who found the previous option and default colour unappealing.
 
 This allows a “better brighter wallpaper” (as well as my choice):
 
-![step 3.3](images/article-3_3.png)
+![Adding a launcher 3](images/article-3_3.png)
 
 Here’s the corresponding .config file:
 
@@ -523,14 +511,10 @@ wallpaper-top=0x8080ff
 wallpaper-bottom=0x8080ff
 ```
 
-### Better keymap
-
-Another small change is that I found a way to pick up the current keyboard and added that to the miral-desktop launch script so that it doesn’t need to be set by hand.
-
 ### The code
 I’ll first deal quickly with the wallpaper changes these options are provided by:
 
-```c++
+```cpp
     CommandLineOption{[&](auto& option) { wallpaper.top(option);},
                       "wallpaper-top",    "Colour of wallpaper RGB", "0x000000"},
     CommandLineOption{[&](auto& option) { wallpaper.bottom(option);},
