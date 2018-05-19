@@ -280,6 +280,9 @@ LXD needs to be initialized: let's run the LXD wizard and choose the default ans
 ```bash
 sudo lxd init
 ```
+Positive
+:
+You may have to log out and in in order for the `sudo lxd init` command to work.
 
 Our snapping tools are ready. Now, we need to move at the top level of our project directory (`castlearena\`) and initialized our `snapcraft` project:
 
