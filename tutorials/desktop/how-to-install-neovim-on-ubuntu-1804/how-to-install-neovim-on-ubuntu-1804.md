@@ -87,7 +87,7 @@ Duration: 1:00
 
 By now, we should have successfully installed Neovim on our Ubuntu Desktop. To access Neovim, we can either;
 
-* Type into the terminal `nvim` and press the `Enter` key to continue.
+* Type into the terminal, `nvim` and press the `Enter` key to continue.
 * Click on the "Apps" icon, search for `neovim` and press the `Enter` key to continue, as demonstrated below;
 
 ![Neovim Startup](./images/04-neovim-start.png)
@@ -102,3 +102,21 @@ To learn more about editing and navigating in Neovim, you can either,
 
 * Type into the editor the following commands, `:Tutor<Enter>` to learn more about Neovim.
 * Go to your browser and access the [user documentation online](https://neovim.io/doc/user/).
+
+
+## Thats all!
+Duration: 1:00
+
+Congratulations! We have successfully completed this tutorial! By now, you should be able to access Neovim and begin creating and editing files for your personal notes, programming projects, you name it!
+
+### Next steps
+
+* If you are new to using a Vim-like text editor, spend some quality time with the built-in tutor and learning how to use the text editor.
+* If you need support, the friendly [Neovim community](https://neovim.io/community/) is the best place to go if you have any questions or you would like to contribute to the project.
+
+### Further readings
+
+* [Neovim Charter](https://neovim.io/charter/)
+* [Neovim Roadmap](https://neovim.io/roadmap/)
+* [Neovim on Github](https://github.com/neovim/neovim)
+* [User Documentation](https://neovim.io/doc/)
