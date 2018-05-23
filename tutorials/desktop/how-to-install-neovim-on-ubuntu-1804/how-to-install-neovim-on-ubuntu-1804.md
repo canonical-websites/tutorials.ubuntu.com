@@ -6,7 +6,7 @@ tags: desktop, neovim, text-editor
 difficulty: 1
 status: draft
 feedback_url: https://github.com/canonical-websites/tutorials.ubuntu.com/issues
-published: 2018-23-05
+published: 2018-05-23
 author: Canonical Web Team <webteam@canonical.com>
 
 ---
@@ -43,3 +43,40 @@ Survey
 
 - A computer with Ubuntu Desktop 18.04 LTS installed.
 - Some basic command-line knowledge.
+
+## Installing Neovim
+Duration: 2:00
+
+### Update the repository cache
+
+We are going to start up a terminal window and update the repository cache so that we can download package information. To start up the terminal, we can either;
+
+* Click on the "Apps" icon, search for `terminal` and start a session.
+* Use the `Ctrl + Alt> + t` keyboard shortcut to start a session.
+
+Once the terminal window is displayed, enter the following commands to update the repository cache;
+
+```bash
+sudo apt update
+```
+
+positive
+: **Note**
+You will be prompted to enter your account password. Type in your password and press the `Enter` key to continue.
+
+![Terminal Update Cache](./images/02-neovim-update-cache.png)
+
+### Install Neovim
+
+In the terminal, enter the following commands to install the Neovim;
+
+```bash
+sudo apt install neovim
+```
+
+positive
+: **Note**
+After the commands execute successfully, you will be prompted to continue with the installation. Type in the letter `y` and press the `Enter` key to continue.
+
+![Terminal Neovim Install](./images/03-neovim-install-package.png)
+
