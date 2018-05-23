@@ -103,7 +103,6 @@ To learn more about editing and navigating in Neovim, you can either,
 * Type into the editor the following commands, `:Tutor<Enter>` to learn more about Neovim.
 * Go to your browser and access the [user documentation online](https://neovim.io/doc/user/).
 
-
 ## Thats all!
 Duration: 1:00
 
