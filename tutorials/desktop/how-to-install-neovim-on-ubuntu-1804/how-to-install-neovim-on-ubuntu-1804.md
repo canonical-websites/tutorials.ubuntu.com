@@ -80,3 +80,25 @@ After the commands execute successfully, you will be prompted to continue with t
 
 ![Terminal Neovim Install](./images/03-neovim-install-package.png)
 
+## Basic Neovim usage
+Duration: 1:00
+
+### Starting up Neovim
+
+By now, we should have successfully installed Neovim on our Ubuntu Desktop. To access Neovim, we can either;
+
+* Type into the terminal `nvim` and press the `Enter` key to continue.
+* Click on the "Apps" icon, search for `neovim` and press the `Enter` key to continue, as demonstrated below;
+
+![Neovim Startup](./images/04-neovim-start.png)
+
+A welcome window should appear displaying information about the version of Neovim you are currently running on and helpful information to get started with the text editor.
+
+![Neovim Welcome](./images/05-neovim-welcome-window.png)
+
+### Basic usage
+
+To learn more about editing and navigating in Neovim, you can either,
+
+* Type into the editor the following commands, `:Tutor<Enter>` to learn more about Neovim.
+* Go to your browser and access the [user documentation online](https://neovim.io/doc/user/).
