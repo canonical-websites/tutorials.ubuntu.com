@@ -16,6 +16,9 @@ Duration: 1:00
 
 ## Overview
 
+Positive
+: Switch language: [ES](tutorial-ubuntu-on-windows-es) | EN
+
 The wonderful Ubuntu terminal is [freely available][msubuntu] for Windows 10.
 
 As any Linux user knows, it's the command line terminal where the magic happens. It's perfect for file management, development, remote administration and a thousand other tasks.
