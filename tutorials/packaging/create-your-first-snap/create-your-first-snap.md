@@ -25,6 +25,7 @@ first snap along the way.
 ### What you'll learn
 
   - How to install the snapcraft tool.
+  - How to install the multipass tool.
   - How to create a new project.
   - How to declare snap metadata.
   - How an app is made of parts.
@@ -50,25 +51,23 @@ Survey
 ## Getting started
 Duration: 1:00
 
-This tutorial requires an Ubuntu 16.04 LTS (Xenial) based system, such as:
+This tutorial requires a Linux system on which snaps can be installed. A container may not be suitable as we will use Multipass as a VM manager.  
 
-* A native Ubuntu 16.04 installation
-* A GNU/Linux distribution derived from an Ubuntu 16.04 base (eg. Linux Mint 18.x)
-* An Ubuntu 16.04 virtual machine
-* An Ubuntu 16.04 [LXD](https://linuxcontainers.org/lxd/getting-started-cli/) or [Docker](https://hub.docker.com/_/ubuntu/) container
+Snap support is included by default in Ubuntu 16.04 and above, can be installed in Ubuntu 14.04 and many other Linux distributions. See the [documentation](https://docs.snapcraft.io/installing-snapd/6735) for details of how to get snap support on your Linux system.
 
-negative
-: **NOTE:**
-This tutorial has been written to work with Ubuntu 16.04 LTS (Xenial Xerus) and its point releases only, and may not work with later Ubuntu releases.
-
-### Installing dependencies
-
-We will now update the APT database and install some additional build tools we are going to need:
+To check if you have snap support, run `snap version` which should produce output similar to below, but with different version numbers depending on your host platform.
 
 ```bash
-sudo apt update
-sudo apt install build-essential
+$ snap version
+snap    2.37.1
+snapd   2.37.1
+series  16
+ubuntu  18.04
+kernel  4.15.0-43-generic
+
 ```
+
+### Installing dependencies
 
 We will now install snapcraft, the utility for building snaps:
 
@@ -78,8 +77,17 @@ sudo snap install --classic snapcraft
 
 positive
 : **NOTE:**
-    * If the `snap` command is not available, install the `snapd` package via APT.
     * The `--classic` switch enables the installation of a snap that uses *classic confinement*.  We discuss snap security confinement in the following section.
+
+Next we will install multipass to manage the Virtual Machines in which snapcraft will build.
+
+```bash
+sudo snap install --classic --beta snapcraft
+```
+
+positive
+: **NOTE:**
+    * The `--beta` switch installs multipass from the 'beta' channel in the Snap store. At the time of writing multipass is not in the stable channel, so we install the beta build.
 
 We're all set. Let's get cracking and build our first snap!
 
@@ -130,6 +138,7 @@ below:
 
 ```yaml
 name: my-snap-name # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
 version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
 summary: Single-line elevator pitch for your amazing snap # 79 char long summary
 description: |
@@ -138,7 +147,7 @@ description: |
   we live in tweetspace and your description wants to look good in the snap
   store.
 
-grade: devel # must be 'stable' to release into 'candidate' and 'stable' channels
+grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: devmode # use 'strict' once you have the right plugs and slots
 ```
 
@@ -146,6 +155,8 @@ This part of `snapcraft.yaml` is mandatory and is basic metadata for the snap.
 Let's go through this line by line:
 
   - **name**: The name of the snap.
+
+  - **base**: The runtime environment used when the resulting snap is executed. `core18` tracks the Ubuntu 18.04 LTS release foundations.
 
   - **version**: The current version of the snap. This is just a human readable string. All snap
     uploads will get an incremental snap **revision**, which is independent from this version. It's
@@ -172,6 +183,7 @@ So much for the basics. Let's customise this for your own snap. Change the top o
 
 ```no-highlight
 name: hello
+base: core18
 version: '2.10'
 summary: GNU Hello, the "hello world" snap
 description: |
@@ -243,31 +255,8 @@ The directory structure has now become:
 mysnaps/
 └── hello
     ├── hello_2.10_amd64.snap
-    ├── parts
-    │   └── gnu-hello
-    │       ├── build
-    │       ├── install
-    │       ├── src
-    │       └── state
-    ├── prime
-    │   ├── bin
-    │   │   └── hello
-    │   ├── meta
-    │   │   └── snap.yaml
-    │   ├── share
-    │   │   ├── info
-    │   │   ├── locale
-    │   │   └── man
-    │   └── snap
-    ├── snap
-    │   └── snapcraft.yaml
-    └── stage
-        ├── bin
-        │   └── hello
-        └── share
-            ├── info
-            ├── locale
-            └── man
+    └── snap
+        └── snapcraft.yaml
 ```
 
 Congratulations! Your snap is now ready to be installed:
@@ -302,13 +291,13 @@ Let's try to execute it:
 hello
 ```
 
-On traditional Ubuntu you will get:
+On traditional Ubuntu you will get output similar to:
 
 ```no-highlight
-The program 'hello' can be found in the following packages:
- * hello
- * hello-traditional
-Try: sudo apt install <selected package>
+Command 'hello' not found, but can be installed with:
+
+sudo apt install hello            
+sudo apt install hello-traditional
 ```
 
 Or you might get a different error if you previously installed the `hello` snap:
@@ -368,6 +357,7 @@ Our `snapcraft.yaml` file should now resemble this:
 
 ```yaml
 name: hello
+base: core18
 version: '2.10'
 summary: GNU Hello, the "hello world" snap
 description: |
@@ -387,38 +377,17 @@ parts:
 
 ### Iterating over your snap
 
-Now that the command is defined let's rebuild the snap. Instead of running snapcraft, here's a
-technique to quickly iterate over your snap during development:
+Now that the command is defined let's rebuild the snap. Snapcraft retains the VM in which the snap was built, and caches many components to make rebuilds faster.
 
 ```bash
-snapcraft prime
+snapcraft
 ```
 
-What we did was tell snapcraft to run the build up until the "prime" step. That is, we are
-omitting the "pack" step (see lower down for an explanation of each step in a snapcraft
-lifecycle). What this invocation gives therefore are the unpacked contents of a snap.
-
-We can then provide this content to `snap try`:
+Install the newly built snap over the top of the previous attempt:
 
 ```bash
-sudo snap try --devmode prime
+sudo snap install --devmode hello_2.10_amd64.snap
 ```
-
-This gives:
-
-```no-highlight
-hello 2.10 mounted from /home/ubuntu/mysnaps/hello/prime
-```
-
-So an unpacked snap was "installed" for testing purposes. Note that any non-metadata changes will
-take effect instantly, thereby expediting your testing.
-
-positive
-: **Note:**
-The different steps of [the snapcraft lifecycle](https://docs.snapcraft.io/snapcraft-lifecycle/5123) are: "pull" (download source for all parts), "build", "stage"
-(consolidate installed files of all parts), "prime" (distill down to just the desired files), and
-"pack" (create a snap out of the prime/ directory). Each step depends on the successful completion
-of the previous one.
 
 Things should be working now. Let's test:
 
@@ -499,10 +468,10 @@ directory (`$SNAP=/snap/hello/current`) as we did for `hello`. Both are equally 
 variables. Technically, `$SNAP/bin` will be prepended to your `$PATH` for this snap. This avoids
 the need to set the path explicitly. This topic will be touched upon in upcoming sections.
 
-Now re-do the build using our previous trick:
+Now re-do the build:
 
 ```bash
-snapcraft prime
+snapcraft
 ```
 
 Only the `gnu-bash` part will be built now (as nothing changed in the other part). This makes
@@ -553,15 +522,14 @@ built-in help system. You can discover all the options by running:
 Now run:
 
 ```bash
-snapcraft clean gnu-bash -s build
+snapcraft clean gnu-bash
 snapcraft prime
 ```
 
-Here you clean just the build step of the `gnu-bash` part, so the source does not need to be
-re-downloaded. Then the build is run again and it passes! Now let's see if both our commands work:
+Here you clean just the `gnu-bash` part. Then the build is run again and it passes! Now let's see if both our commands work:
 
 ```bash
-sudo snap try --devmode prime
+sudo snap install --devmode hello_2.10_amd64.snap
 hello
 ```
 
@@ -623,8 +591,7 @@ For this to be declared in your snap, let's set `confinement` to `strict` in `sn
 confinement: strict
 ```
 
-Now let's build the snap and install it properly! That is, we are going to call `snapcraft` without
-`prime` and `snap install` (as opposed to `snap try`). You should also stop using the `--devmode`
+Now let's build the snap and install it properly! That is, we are going to call `snapcraft`. You should also stop using the `--devmode`
 switch to really test it under confinement:
 
 ```bash
