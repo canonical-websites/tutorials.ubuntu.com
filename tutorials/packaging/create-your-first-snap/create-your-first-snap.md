@@ -50,21 +50,36 @@ Survey
 ## Getting started
 Duration: 1:00
 
-This tutorial is based on Ubuntu (16.04 LTS or greater) and the `snapcraft` APT package.
+This tutorial requires an Ubuntu 16.04 LTS (Xenial) based system, such as:
 
-positive
-: **Note:**
-The `snapcraft` package will soon be available on other GNU/Linux distributions.
+* A native Ubuntu 16.04 installation
+* A GNU/Linux distribution derived from an Ubuntu 16.04 base (eg. Linux Mint 18.x)
+* An Ubuntu 16.04 virtual machine
+* An Ubuntu 16.04 [LXD](https://linuxcontainers.org/lxd/getting-started-cli/) or [Docker](https://hub.docker.com/_/ubuntu/) container
+
+negative
+: **NOTE:**
+This tutorial has been written to work with Ubuntu 16.04 LTS (Xenial Xerus) and its point releases only, and may not work with later Ubuntu releases.
 
 ### Installing dependencies
 
-We will now update the APT database and install snapcraft and some additional build tools we are
-going to need:
+We will now update the APT database and install some additional build tools we are going to need:
 
 ```bash
 sudo apt update
-sudo apt install snapcraft build-essential
+sudo apt install build-essential
 ```
+
+We will now install snapcraft, the utility for building snaps:
+
+```bash
+sudo snap install --classic snapcraft
+```
+
+positive
+: **NOTE:**
+    * If the `snap` command is not available, install the `snapd` package via APT.
+    * The `--classic` switch enables the installation of a snap that uses *classic confinement*.  We discuss snap security confinement in the following section.
 
 We're all set. Let's get cracking and build our first snap!
 
@@ -82,6 +97,9 @@ cd ~/mysnaps/hello
 ```
 
 **It is from within this `hello` directory where we will invoke all subsequent commands.**
+
+negative
+: **NOTE:** Due to the limitation of GNU Hello's build system, the path of the directory you put the `hello` directory in *shouldn't contain any spaces*.
 
 Get started by initialising your snap:
 
@@ -143,10 +161,12 @@ Let's go through this line by line:
   - **grade**: Can be used by the publisher to indicate the quality confidence in the build. The
     store will prevent publishing 'devel' grade builds to the 'stable' channel.
 
-  - **confinement**: Can be either 'devmode' or 'strict'. A newly-developed snap should start out
+  - **confinement**: Can be either 'devmode',  'strict', or 'classic'. A newly-developed snap should start out
     in `devmode`. Security requirements can get in the way during development and 'devmode' eases
     these requirements. Security aspects like confinement can be addressed once the snap is
-    working.
+    working.  If there are technical issues that obstruct the confinement of a snap, it may also be developed and released using `classic` confinement. *Classic* imposes no additional restrictions and effectively grants device ownership to the snap. Consequently, snaps using *classic* confinement require a manual review before being released to the store (see [Classic confinement review process](https://forum.snapcraft.io/t/process-for-reviewing-classic-confinement-snaps/1460) for further details).
+    
+    However, in this tutorial we will only focus on `devmode` and `strict` confinement.
 
 So much for the basics. Let's customise this for your own snap. Change the top of the file to be:
 
@@ -162,10 +182,7 @@ confinement: devmode
 
 positive
 : **Note:**
-The version is quoted ('`2.10`') because the version is a string, not a number. You could
-theoretically use a version string without numbers (like '`myfirstversion`'). This information is
-for user consumption only and doesn't require special ordering (e.g. ver1 > ver2) for an update to
-reach the user.
+Version information is for snap user consumption only, and has no effect on snap updates. It's defined within quotes, (`'2.10'`), because it needs to be a [YAML string](http://yaml.org/type/str.html) rather than a floating-point number. Using a string allows for non-numeric version details, such as '`myfirstversion`' or '`2.3-git`'.
 
 ### Adding a part
 
@@ -365,7 +382,7 @@ apps:
 parts:
   gnu-hello:
     source: http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
-    plugin: autotools command: bin/hello
+    plugin: autotools
 ```
 
 ### Iterating over your snap
@@ -377,9 +394,9 @@ technique to quickly iterate over your snap during development:
 snapcraft prime
 ```
 
-What we did was tell snapcraft to run the build up until the "prime" stage. That is, we are
-omitting the "snap" stage (see lower down for an explanation of snapcraft stages). What this
-invocation gives therefore are the unpacked contents of a snap.
+What we did was tell snapcraft to run the build up until the "prime" step. That is, we are
+omitting the "pack" step (see lower down for an explanation of each step in a snapcraft
+lifecycle). What this invocation gives therefore are the unpacked contents of a snap.
 
 We can then provide this content to `snap try`:
 
@@ -398,9 +415,9 @@ take effect instantly, thereby expediting your testing.
 
 positive
 : **Note:**
-The different stages of snapcraft are: "pull" (download source for all parts), "build", "stage"
+The different steps of [the snapcraft lifecycle](https://docs.snapcraft.io/snapcraft-lifecycle/5123) are: "pull" (download source for all parts), "build", "stage"
 (consolidate installed files of all parts), "prime" (distill down to just the desired files), and
-"snap" (create a snap out of the prime/ directory). Each step depends on the successful completion
+"pack" (create a snap out of the prime/ directory). Each step depends on the successful completion
 of the previous one.
 
 Things should be working now. Let's test:
@@ -477,7 +494,7 @@ have the command condensed to `hello`.
 Our snap will thus result in two binaries being shipped: `hello` and `hello.bash`.
 
 Note that we set `bash` as the command parameter, and not `bin/bash` relative to the system snap
-directory (`$SNAP=/snap`) as we did for `hello`. Both are equally valid because `snapcraft` and
+directory (`$SNAP=/snap/hello/current`) as we did for `hello`. Both are equally valid because `snapcraft` and
 `snapd` create a small wrapper around your executable command which sets some environment
 variables. Technically, `$SNAP/bin` will be prepended to your `$PATH` for this snap. This avoids
 the need to set the path explicitly. This topic will be touched upon in upcoming sections.
@@ -507,7 +524,7 @@ are:
 
   - Instruct only one of the two parts to place content in this directory. We can also tell both
     to supress the content. Which solution depends on the necessity of said content. Either is
-    achieved by influencing the 'snap' and 'stage' stages.
+    achieved by influencing the 'snap' and 'stage' steps.
   - Change the directory location for one of the two parts.
 
 Luckily the second option is easy to implement and it's nice being able to ship both. The
