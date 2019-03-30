@@ -33,7 +33,7 @@
     "test": "npm-run-all lint-js lint-polymer lint-style lint-content"
   },
   "devDependencies": {
-    "eslint": "3.19.0",
+    "eslint": "5.16.0",
     "eslint-config-google": "0.7.1",
     "eslint-plugin-html": "2.0.3",
     "find": "0.2.7",
