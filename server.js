@@ -155,8 +155,8 @@ const hostname = 'https://tutorials.ubuntu.com';
 const tutorialBasePath= `/tutorial`;
 const tutorialBaseURL = `${hostname}${tutorialBasePath}`;
 
-const siteTitle = 'Ubuntu tutorials'
-const siteDescription = 'Ubuntu Tutorials are just like learning from pair programming except you can do it on your own. They provide a step-by-step process to doing development and devops activities with Ubuntu, on servers, clouds or devices.';
+const siteTitle = 'EduBlocks Learning Portal'
+const siteDescription = '';
 
 const tutorialsAPIPath = path.join(__dirname, 'api', 'codelabs.json');
 const tutorialsData = require(tutorialsAPIPath).codelabs;

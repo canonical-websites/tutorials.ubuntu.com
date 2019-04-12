@@ -1,4 +1,4 @@
-# Ubuntu tutorials
+# EduBlocks Learning Portal
 
 ## Running this site
 
