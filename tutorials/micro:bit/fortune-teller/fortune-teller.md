@@ -2,11 +2,11 @@
 id: fortune-teller
 summary: Fortune Teller
 categories: micro:bit
-tags: tutorial,installation,burn,dvd,windows,ubuntu,desktop
+tags: projects,easy,micro:bit
 difficulty: 3
 status: published
 published: 2019-04-15
-author: Canonical Web Team <webteam@canonical.com>
+author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 ---
