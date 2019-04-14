@@ -26,20 +26,15 @@ You will need
 ## Get Started
 Duration: 1:00
 
-Start by going to a web browser on your PC or Mac. Type in the following address in the search bar:
+You’ll need to load up EduBlocks. You can do this by opening a web browser of your choice and typing https://app.edublocks.org into the search box. Once you've loaded up EduBlocks, you'll be presented with the mode selector. 
 
-```
-https://app.edublocks.org
-```
+![screenshot](https://i.ibb.co/tQ0JcTz/Screenshot-2019-04-14-edublocks.png)
 
-Once you have pointed your browser to that link, you'll want to select the micro:bit mode in the mode selector. 
-
-![screenshot](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LUvJUfEMWg52HH-QocO%2F-LUvJb_V9vfqGhEUz25L%2F-LUvOZv4A7lsLdULrJ5P%2Fimage.png?alt=media&token=4266c296-dec5-4f09-8712-e4cc506c9a08)
+Now, we want to select the micro:bit mode. To do this simply click on the blue select button underneath the micro:bit icon. This will load up the micro:bit mode.
 
 Once you've selected the micro:bit mode, you should see it pop up:
 
-![screenshot](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LUvJUfEMWg52HH-QocO%2F-LUvJb_V9vfqGhEUz25L%2F-LUvOtg62wp104ubJtgm%2Fimage.png?alt=media&token=a725e1c8-b8fa-4515-96fe-5156b24e7526)
-
+![screenshot](https://i.ibb.co/93PHxFY/Screenshot-2019-04-14-edublocks-2.png)
 
 ## Import the libraries
 Duration: 1:00
