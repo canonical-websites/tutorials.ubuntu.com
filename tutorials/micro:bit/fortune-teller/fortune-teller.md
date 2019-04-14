@@ -1,6 +1,6 @@
 ---
 id: fortune-teller
-summary: Fortune Teller
+summary: Create a simple micro:bit powered Fortune Teller so that when you shake the micro:bit, it will generate a random answer to a question that you have asked.
 categories: micro:bit
 tags: projects,easy,micro:bit
 difficulty: 3
