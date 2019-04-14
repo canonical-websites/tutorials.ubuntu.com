@@ -26,7 +26,7 @@ You will need
 ## Get Started
 Duration: 1:00
 
-You’ll need to load up EduBlocks. You can do this by opening a web browser of your choice and typing https://app.edublocks.org into the search box. Once you've loaded up EduBlocks, you'll be presented with the mode selector. 
+You’ll need to load up EduBlocks. You can do this by opening a web browser of your choice and typing [https://app.edublocks.org](https://app.edublocks.org) into the search box. Once you've loaded up EduBlocks, you'll be presented with the mode selector. 
 
 ![screenshot](https://i.ibb.co/tQ0JcTz/Screenshot-2019-04-14-edublocks.png)
 
@@ -39,7 +39,17 @@ Once you've selected the micro:bit mode, you should see it pop up:
 ## Import the libraries
 Duration: 1:00
 
-Now its time to build our code. We can drag our code blocks from the EduBlocks toolbar which is on the left hand side of the screen. The pink
-blocks can be found in the basic menu. This will form the start of the code. Both blocks are necessary for this program to work.
+Now its time to build our code. We can drag our code blocks from the EduBlocks toolbar which is on the left hand side of the screen. The pink blocks can be found in the basic menu. This will form the start of the code. Both blocks are necessary for this program to work.
 
 ![screenshot](https://i.ibb.co/0ZdJykH/Screenshot-from-2019-03-15-22-14-39.png)
+
+## Create a list and loop
+Duration 1:00
+Next, we need to create a list. We can do this by going into the blue Variables category and then by clicking the "Create Variable" button. Name the variable answers when prompted.
+
+![screenshot](https://i.ibb.co/7Ys42gV/Screenshot-2019-04-14-edublocks-3.png)
+
+Now we need to drag the block that says `answers = 0` into the workspace. Change the 0 to `"Yes", "No", "Maybe"`. Then drag in a `while True:` loop from Basic. From here on, the rest of the code will put inside of this loop.
+
+![screenshot](https://i.ibb.co/N9kNDt9/Screenshot-2019-04-14-edublocks-4.png)
+
