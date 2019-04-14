@@ -6,7 +6,6 @@
 <link rel="import" href="../bower_components/iron-location/iron-location.html">
 <link rel="import" href="../bower_components/iron-location/iron-query-params.html">
 
-<link rel="import" href="elements/tutorial-feedback.html">
 
 <dom-module id="codelabs-page">
   <template>
@@ -289,20 +288,6 @@
         codelab._goToHome = this._goToHome.bind(this);
       },
 
-      _attachFeedbackForm: function() {
-        let currentUrl = this.routeData.codelab;
-        let metadata = this.codelabs.filter(function(metadata) {
-          return metadata.url === currentUrl;
-        })[0];
-
-        let contentContainer = Polymer.dom(this.$.contentContainer);
-        let steps = contentContainer.querySelectorAll('google-codelab-step');
-        let lastPage = steps[steps.length - 1].querySelector('.inner');
-
-        let tutorialFeedback = document.createElement('tutorial-feedback');
-        tutorialFeedback.title = metadata.title;
-        lastPage.appendChild(tutorialFeedback);
-      },
 
       _addLabelNote: function(tags) {
         let currentUrl = this.routeData.codelab;
