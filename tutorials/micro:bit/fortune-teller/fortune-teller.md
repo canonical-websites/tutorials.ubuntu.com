@@ -44,7 +44,7 @@ Now its time to build our code. We can drag our code blocks from the EduBlocks t
 ![screenshot](https://i.ibb.co/0ZdJykH/Screenshot-from-2019-03-15-22-14-39.png)
 
 ## Create a list and loop
-Duration 2:00
+Duration: 2:00
 
 Next, we need to create a list. We can do this by going into the blue Variables category and then by clicking the "Create Variable" button. Name the variable answers when prompted.
 
@@ -59,7 +59,7 @@ positive
 From here on, the rest of the code will put inside of this loop.
 
 ## Check for a shake
-Duration 2:00
+Duration: 2:00
 
 Now we need to check if the micro:bit has been shaken. Grab an `if` block from basic and then from Accelerometer, get a block which states `accelerometer.was_gesture('shake')` and put it inside of the if block where it says `True`. 
 
@@ -70,14 +70,14 @@ Whatever we put inside this if statement will run when the micro:bit is shaken. 
 ![screenshot](https://i.ibb.co/gZ6W94Z/Screenshot-2019-04-14-edublocks-6.png)
 
 ## Final Code
-Duration 1:00
+Duration: 1:00
 
 You've now finished all of the code! It's time to check to see if we haven't missed a step or made a mistake. Now is your chance to check your code compared to the image below to check if it's all right.
 
 ![screenshot](https://i.ibb.co/XLzbq9t/Screenshot-2019-04-14-edublocks-7.png)
 
 ## Download your code
-Duration 3:00
+Duration: 3:00
 
 It's now time to download your code!
 
@@ -94,7 +94,7 @@ Once your code has downloaded, head over to your downloads folder where you'll s
 ![screenshot](https://i.ibb.co/j3H14WJ/ezgif-com-video-to-gif-1.gif)
 
 ## Test your code
-Duration 1:00
+Duration: 1:00
 
 You should now be able to test your code.
 Shake the micro:bit and it'll scroll a random choice from our answers list.
@@ -102,9 +102,9 @@ Congratulations, you've made a working Fortune Teller!
 
 ![screenshot](https://pbs.twimg.com/media/DI9ZGudXcAEVQEF.png)
 
-Outcomes
+### What you've learnt
 
-    - Learnt how to create a list
-    - Learnt how to use logical statements
-    - Learnt how to use a loop
-    - Learnt how to choose a random option from a list
+  - Learnt how to create a list
+  - Learnt how to use logical statements
+  - Learnt how to use a loop
+  - Learnt how to choose a random option from a list
