@@ -1,12 +1,12 @@
 ---
 id: fortune-teller
-summary: Fortune Teller
+summary: Create a simple micro:bit powered Fortune Teller so that when you shake the micro:bit, it will generate a random answer to a question that you have asked.
 categories: micro:bit
-tags: tutorial,installation,burn,dvd,windows,ubuntu,desktop
+tags: projects,easy,micro:bit
 difficulty: 3
 status: published
 published: 2019-04-15
-author: Canonical Web Team <webteam@canonical.com>
+author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 ---
