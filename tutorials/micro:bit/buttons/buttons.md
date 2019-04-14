@@ -42,38 +42,40 @@ Now its time to build our code. We can drag our code blocks from the EduBlocks t
 
 ![screenshot](Screenshot_2019-04-14 edublocks.png)
 
-## Create a list and loop
-Duration: 2:00
-
-Next, we need to create a list. We can do this by going into the blue Variables category and then by clicking the "Create Variable" button. Name the variable answers when prompted.
-
-![screenshot](https://i.ibb.co/7Ys42gV/Screenshot-2019-04-14-edublocks-3.png)
-
-Now we need to drag the block that says `answers = 0` into the workspace. Change the 0 to `"Yes", "No", "Maybe"`. Then drag in a `while True:` loop from Basic. 
-
-![screenshot](https://i.ibb.co/N9kNDt9/Screenshot-2019-04-14-edublocks-4.png)
-
 positive
 : **NOTE:**
 From here on, the rest of the code will put inside of this loop.
 
-## Check for a shake
-Duration: 2:00
+## When the A button is pressed
+Duration: 1:00
 
-Now we need to check if the micro:bit has been shaken. Grab an `if` block from basic and then from Accelerometer, get a block which states `accelerometer.was_gesture('shake')` and put it inside of the if block where it says `True`. 
+Next, we need to scroll a message when the A button is pressed. We can do this by creating an if statement to check for a button press. Grab an `if True` block from Basic and then drag a `button_a.is_pressed()` block from Buttons and put that inside of the If statement where it says `True`.
 
-![screenshot](https://i.ibb.co/T1ffTJW/Screenshot-2019-04-14-edublocks-5.png)
+![screenshot](Screenshot_2019-04-14 edublocks(1).png)
 
-Whatever we put inside this if statement will run when the micro:bit is shaken. We want to scroll a random choice from our answer list. To do this, get a block from "Display" which states `display.scroll(0)`, drag this inside of the if statement. Now we want to replace the `0` with some code that will pick a random choice from our answer list. Replace `0` with `random.choice(answers)`. This section should now look like this:
+Now we need to get a block which will scroll a message. From Display, get a `display.scroll("Hello World")` block and replace `Hello World` with `Button A Pressed`. Put this block inside of the If statement. 
 
-![screenshot](https://i.ibb.co/gZ6W94Z/Screenshot-2019-04-14-edublocks-6.png)
+![screenshot](Screenshot_2019-04-14 edublocks(2).png)
+
+## When the B button is pressed
+Duration: 1:00
+
+Now, we need to scroll a message when the B button is pressed. We can do this by creating an **elif** statement to check for a button press. Grab an `elif True` block from Basic and then drag a `button_a.is_pressed()` block from Buttons, click on the `a`dropdown and change it to `b` then, put that block inside of the elif statement where it says `True`.
+
+![screenshot](Screenshot_2019-04-14 edublocks(4).png)
+
+Next, we need to get a block which will scroll another message. From Display, get a `display.scroll("Hello World")` block and replace `Hello World` with `Button B Pressed`. Put this block inside of the If statement. 
+
+![screenshot](Screenshot_2019-04-14 edublocks(3).png)
+
+
 
 ## Final Code
 Duration: 1:00
 
 You've now finished all of the code! It's time to check to see if we haven't missed a step or made a mistake. Now is your chance to check your code compared to the image below to check if it's all right.
 
-![screenshot](https://i.ibb.co/XLzbq9t/Screenshot-2019-04-14-edublocks-7.png)
+![screenshot](Screenshot_2019-04-14 edublocks(5).png)
 
 ## Download your code
 Duration: 3:00
@@ -96,14 +98,19 @@ Once your code has downloaded, head over to your downloads folder where you'll s
 Duration: 1:00
 
 You should now be able to test your code.
-Shake the micro:bit and it'll scroll a random choice from our answers list.
-Congratulations, you've made a working Fortune Teller!
+Press the A button and watch it scroll that the A button has been pressed.
+Press the B button and watch it scroll that the B button has been pressed.
+Congratulations, you've successfully used the micro:bit's buttons!
 
 ![screenshot](https://pbs.twimg.com/media/DI9ZGudXcAEVQEF.png)
 
 ### What you've learnt
 
-  - Learnt how to create a list
+  - Learnt how to use the micro:bit's buttons
   - Learnt how to use logical statements
   - Learnt how to use a loop
-  - Learnt how to choose a random option from a list
+  - Learnt how to scroll a message on the micro:bit
+
+### Challenge
+
+Now you know how the buttons work, can you make the micro:bit do something else on a button press?
