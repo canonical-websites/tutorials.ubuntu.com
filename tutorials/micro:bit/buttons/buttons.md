@@ -42,7 +42,7 @@ Now its time to build our code. We can drag our code blocks from the EduBlocks t
 
 ![screenshot](Screenshot_2019-04-14 edublocks.png)
 
-## Create a list and loop #5E12F8
+## Create a list and loop
 Duration: 2:00
 
 Next, we need to create a list. We can do this by going into the blue Variables category and then by clicking the "Create Variable" button. Name the variable answers when prompted.
