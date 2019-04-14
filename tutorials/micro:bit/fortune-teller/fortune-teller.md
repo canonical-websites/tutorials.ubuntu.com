@@ -70,7 +70,6 @@ Whatever we put inside this if statement will run when the micro:bit is shaken. 
 ![screenshot](https://i.ibb.co/gZ6W94Z/Screenshot-2019-04-14-edublocks-6.png)
 
 ## Final Code
-
 Duration 1:00
 
 You've now finished all of the code! It's time to check to see if we haven't missed a step or made a mistake. Now is your chance to check your code compared to the image below to check if it's all right.
@@ -78,7 +77,6 @@ You've now finished all of the code! It's time to check to see if we haven't mis
 ![screenshot](https://i.ibb.co/XLzbq9t/Screenshot-2019-04-14-edublocks-7.png)
 
 ## Download your code
-
 Duration 3:00
 
 It's now time to download your code!
@@ -96,7 +94,6 @@ Once your code has downloaded, head over to your downloads folder where you'll s
 ![screenshot](https://i.ibb.co/j3H14WJ/ezgif-com-video-to-gif-1.gif)
 
 ## Test your code
-
 Duration 1:00
 
 You should now be able to test your code.
