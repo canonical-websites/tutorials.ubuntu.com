@@ -5,7 +5,7 @@ categories: micro:bit
 tags: guide, micro:bit, getting started, help
 difficulty: 2
 status: published
-published: 2019-04-18
+published: 2019-05-18
 author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
@@ -19,7 +19,7 @@ The micro:bit mode within EduBlocks v3 allows you to code the BBC micro:bit in M
 
 ![screenshot](Screenshot_2019-04-18 edublocks.png)
 
-## Get Started
+## What is the BBC micro:bit
 Duration: 2:00
 
 The BBC micro:bit is a small microcontroller which was originally created to be handed out to 1 million eleven year old children (Year 7's) in the UK. They are now available for public availability and the project is now carried on by the Micro:bit Educational Foundation. The micro:bit consists of:
@@ -48,7 +48,7 @@ In a modern browser of your choice (we've found Google Chrome works best), launc
 
 positive
 : **Web Address**
-[https://app.edublocks.org](https://app.edublocks.org)
+  [https://app.edublocks.org](https://app.edublocks.org)
 
 ### Launch the mode
 
@@ -96,7 +96,7 @@ Once your code has downloaded, head over to your downloads folder where you'll s
 ## Flashing with webUSB
 Duration: 4:00
 
-If you run the chrome browser version 65+ and on Windows 10, Linux or macOS, you can use a tool called webUSB to flash your micro:bit directly from the browser.
+If you run the chrome browser version 65+ and on Windows 10, Linux, macOS or Android, you can use a tool called webUSB to flash your micro:bit directly from the browser.
 
 You need to have the latest firmware version on your micro:bit to be able to do this, to learn how to check this and update your firmware, [click here](https://support.microbit.org/support/solutions/articles/19000084059-beta-testing-web-usb)
 
