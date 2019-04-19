@@ -89,7 +89,7 @@ Duration: 5:00
 
 Here is a Fill the screen program. Use the built-in compass to turn the lights on the LED screen on by tilting the micro:bit.
 
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay9.png)
+![screenshot](https://i.ibb.co/hLV6M7B/Edublocks-Day9.png)
 
 ## Radio Messages
 Duration: 5:00
