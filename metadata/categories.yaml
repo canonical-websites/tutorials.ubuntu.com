@@ -2,7 +2,7 @@ micro:bit:
   lightcolor: "#ff0066"
   maincolor: "#ff0066"
   secondarycolor: "#ff0066"
-Raspberry Pi:
+Pi:
   lightcolor: "#ff0066"
   maincolor: "#ff0066"
   secondarycolor: "#ff0066"
