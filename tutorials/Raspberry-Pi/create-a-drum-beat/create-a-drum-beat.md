@@ -11,7 +11,7 @@ feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 ---
 
-# Hide a Diamond, Find a Diamond
+# Create a drum beat
 
 ## Overview
 
@@ -78,8 +78,8 @@ Now it’s time to run our code. Click on the green run button in the top right 
 
 ![screenshot](Screenshot from 2019-04-19 14-55-52.png)
 
-Click the play button to hear the outcome of our drumbeat:
-<a href="https://drive.google.com/file/d/1RXrowuYukhRM9FpKmfoQgy2k1QD3iAz4/view"><img src="https://freeiconshop.com/wp-content/uploads/edd/play-flat.png"></a>
+Click the link below button to hear the outcome of our drumbeat:
+[Play Drum Beat](https://drive.google.com/file/d/1RXrowuYukhRM9FpKmfoQgy2k1QD3iAz4/view)
 
 ### Outcome
 
