@@ -32,78 +32,38 @@ You’ll need to load up EduBlocks. You can do this by opening a web browser of 
 
 ![screenshot](https://i.ibb.co/tQ0JcTz/Screenshot-2019-04-14-edublocks.png) 
 
-Now, we want to select the mode. To do this simply click on the blue select button underneath the micro:bit icon. This will load up the micro:bit mode.
+Now, we want to select the mode. To do this simply click on the blue select button underneath the Raspberry Pi icon. This will load up the Raspberry Pi mode.
+If you're on a raspberry pi, it will go straight to the mode if you have EduBlocks connect running. However, if you want to access this mode from a PC, you'll be given the option to connect to your Raspberry Pi by typing it it's IP Address.
 
-Once you've selected the micro:bit mode, you should see it pop up:
+Once you've selected the Raspberry Pi mode, you should see it pop up:
 
 ![screenshot](Screenshot from 2019-04-19 13-00-06.png)
 
-## Hello World
-Duration: 5:00
+## Imports and server setup
+Duration: 2:00
 
-Here is a Hello World program. When learning a new programming language this will typically be the first program you learn to create, but this literally takes about a minute with a micro:bit. So why not integrate the buttons and display some images too.
+Now its time to build our code. We can drag our code blocks from the EduBlocks toolbar which is on the left hand side of the screen. Our first 3 blocks of code can be found in the Basic Tab and the Minecraft General Tab, take a look, they are colour co-ordinated. Drag the blocks onto the workspace as shown in the diagram. In this section of code we are importing the Minecraft Module from the Minecraft Pi Library. Then we are importing time. The 3rd block creates a connection to the Minecraft server. 
 
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocks.png)
+![screenshot](Screenshot from 2019-04-19 12-45-58.png)
 
-## Random number generator
-Duration: 5:00
+## Post a message and hide the block
+Duration: 2:00
 
-Here is a Random Number Generator. The random number generator will generate a number between 1 and 5 and dsiplay it on the micro:bit.
+Our next 2 blocks can all be found in the Minecraft commands section of the toolbar. Drag them over to the workspace and connect to the previous blocks. When entering text into blocks click inside - you can tab across. In this section of code we are firstly sending a message to the Minecraft server using postToChat to display the message. – Here is the block I have hidden. Then we are setting the position of where to hide the block.
 
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay2.png)
+![screenshot](Screenshot from 2019-04-19 12-47-30.png)
 
-## Countdown timer
-Duration: 5:00
+## Set the camera position
+Duration: 2:00
 
-Here is a Countdown Timer. The timer will count up to 20 when button A is pressed and the timer will start counting down from what ever number you chose between 1 and 20 when button B is pressed.
+The next 3 blocks are going to set the camera position and then wait for 5 seconds, the first block will move the camera position to the x,y,z coordinates given,the second block will then fix the camera position so it can't move and then the third block will wait for 5 seconds before carrying onto the next section.
 
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay3.png)
+![screenshot](Screenshot from 2019-04-19 12-47-43.png)
 
-## Step Counter
-Duration: 5:00
+## Send a "find it message"
+Duration: 2:00
 
-Here is a Step Counter. Everytime the micro:bit is shaken it increases the number of steps by 1.
+For our final 2 blocks we need to go back to the Minecraft Commands section. Drag them onto the workspace and attach to the previous blocks. the final 2 blocks,the first sends a message to the Minecraft server using postToChat to display the message – “Go find it”. The second tells our camera to go back to normal setting.
 
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay4.png)
+![screenshot](Screenshot from 2019-04-19 12-47-57.png)
 
-## Dice
-Duration: 5:00
-
-Here is a Dice. This is a great little project if you want to play a board game, but the dice seems to have been misplaced. 
-
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay5.png)
-
-## Coin Flip
-Duration: 5:00
-
-Here is a Coin flipper. Great for decision making!
-
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay6.png)
-
-## Spirit Level
-Duration: 5:00
-
-Here is a Spirit Level. Great for checking that surfaces are level! 
-
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay7.png)
-
-## Fill the screen
-Duration: 5:00
-
-Here is a Fill the screen program. Use the built-in compass to turn the lights on the LED screen on by tilting the micro:bit.
-
-![screenshot](https://i.ibb.co/hLV6M7B/Edublocks-Day9.png)
-
-## Radio Messages
-Duration: 5:00
-
-Here is a Radio Messages program. Use the built-in radio feature on the micro:bit to send messages.
-
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/EduBlocksDay11.png)
-
-## Touch Sensing
-Duration: 5:00
-
-Here is a Pin touching program. Learning about touch input on the micro:bit.
-
-![screenshot](https://micromag.cc/wp-content/uploads/2019/03/edublocksday14-1.png)
