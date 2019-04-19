@@ -1,6 +1,6 @@
 ---
 id: hide-a-diamond
-summary:  Hide a block in the minecraft world and challenge a friend to find it
+summary:  Hide a block in the minecraft world and challenge a friend to find it!
 categories: raspberrypi
 tags: projects, minecraft, fun, raspberry pi, gpio
 difficulty: 3
