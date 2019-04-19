@@ -5,7 +5,7 @@ categories: micro:bit
 tags: projects,easy, micro:bit, temperature, thermometer, sensor
 difficulty: 2
 status: published
-published: 2019-05-14
+published: 2019-05-19
 author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
@@ -98,9 +98,9 @@ Duration: 1:00
 
 You should now be able to test your code.
 Shake your micro:bit and you should see a reading of the temperature in celcius!
-Congratulations, you've successfully used the micro:bit's buttons!
+Congratulations, you've successfully created your own micro:bit thermometer!!
 
-![screenshot](https://pbs.twimg.com/media/DI9ZGudXcAEVQEF.png)
+<iframe src="https://player.vimeo.com/video/322577663" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 ### What you've learnt
 
