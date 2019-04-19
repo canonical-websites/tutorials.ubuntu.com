@@ -28,7 +28,9 @@ Once you've followed our Raspberry Pi getting started guide (if you haven't alre
 
 ![screenshot](imageedit_2_2194120828.png) 
 
-You’ll need to load up EduBlocks. You can do this by opening a web browser of your choice and typing [https://app.edublocks.org](https://app.edublocks.org) into the search box. Once you've loaded up EduBlocks, you'll be presented with the mode selector. 
+Now go back into the same menu, select games and launch Minecraft Pi. When launched, select Start Game then Create New. Press ESC on your keyboard and minimise the window.
+
+You’ll now need to load up EduBlocks. You can do this by opening a web browser of your choice and typing [https://app.edublocks.org](https://app.edublocks.org) into the search box. Once you've loaded up EduBlocks, you'll be presented with the mode selector. 
 
 ![screenshot](https://i.ibb.co/tQ0JcTz/Screenshot-2019-04-14-edublocks.png) 
 
@@ -67,3 +69,19 @@ For our final 2 blocks we need to go back to the Minecraft Commands section. Dra
 
 ![screenshot](Screenshot from 2019-04-19 12-47-57.png)
 
+## Final Code
+Duration: 1:00
+
+You've now finished all of the code! It's time to check to see if we haven't missed a step or made a mistake. Now is your chance to check your code compared to the image below to check if it's all right.
+
+![screenshot](Screenshot from 2019-04-19 13-38-02.png)
+
+## Run your code
+
+Now it’s time to run our code. Click on the green run button in the top right hand corner of the EduBlocks window. Then click on the Minecraft tab to return to our Minecraft world. Now go and seek the hidden treasure! You can see the coordinates at the top left hand corner of minecraft for guidance.
+
+![screenshot](Screenshot from 2019-04-19 13-41-08.png)
+
+### Outcome
+
+In this tutorial we have learnt how to import libraries, talk to the Minecraft server - in order to display a message, and use variables. We have used a set camera code and knowledge of the x, y and z co-ordinates to firstly hide a block and then find it.
