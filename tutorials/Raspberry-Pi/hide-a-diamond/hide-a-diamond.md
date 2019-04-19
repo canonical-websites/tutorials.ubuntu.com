@@ -1,7 +1,7 @@
 ---
 id: hide-a-diamond
 summary:  10 quick fire easy makes for the micro:bit
-categories: Raspberry Pi
+categories: Raspberry-Pi
 tags: projects, minecraft, fun, raspberry pi, gpio
 difficulty: 3
 status: published
