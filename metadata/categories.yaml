@@ -6,7 +6,7 @@ raspberrypi:
   lightcolor: "#ff0066"
   maincolor: "#ff0066"
   secondarycolor: "#ff0066"
-Python:
+python:
   lightcolor: "#ff0066"
   maincolor: "#ff0066"
   secondarycolor: "#ff0066"
