@@ -61,7 +61,7 @@ Our next section is the most complicated, this is where we'll do the maths to ch
 
 After that block, we need a `turtle.width(20)` block from Turtle, put this underneath the colour block. Now, from maths, get a True + True block and put in in place of 20, change the + to a / and then replace the first true with an `i` block from loops. Back in maths, get another True + True block and put in in place of the second True in the previous one. In this new block, replace the first true with 100 and the second with a 1.
 
-![screenshot](Screenshot from 2019-04-19 15-53-54.png)
+![screenshot](Screenshot from 2019-04-19 15-53-30.png)
 
 ## Move the turtle
 Duration: 3:00
