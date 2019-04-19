@@ -5,7 +5,7 @@ categories: micro:bit
 tags: projects,easy,micro:bit
 difficulty: 3
 status: published
-published: 2019-04-15
+published: 2019-05-19
 author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
