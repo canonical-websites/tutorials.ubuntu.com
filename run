@@ -391,7 +391,7 @@ case $run_command in
         done
 
         # Run the serve container, publishing the port, and detaching if required
-        run_as_user "--env PORT=${PORT} --publish ${PORT}:${PORT} ${publish_forward_ports} ${publish_extra_ports} ${detach} ${run_serve_docker_opts} ${module_volumes}" yarn run serve $*
+        run_as_user "--env PORT=${PORT} --publish ${PORT}:${PORT} ${publish_forward_ports} ${publish_extra_ports} ${detach} ${run_serve_docker_opts} ${module_volumes}" yarn run serve tutorials$*
     ;;
     "stop")
         echo "Stopping all running containers for ${project}"
