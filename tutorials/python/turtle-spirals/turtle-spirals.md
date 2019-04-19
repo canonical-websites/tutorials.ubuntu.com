@@ -61,9 +61,9 @@ Our next section is the most complicated, this is where we'll do the maths to ch
 
 After that block, we need a `turtle.width(20)` block from Turtle, put this underneath the colour block. Now, from maths, get a True + True block and put in in place of 20, change the + to a / and then replace the first true with an `i` block from loops. Back in maths, get another True + True block and put in in place of the second True in the previous one. In this new block, replace the first true with 100 and the second with a 1.
 
-![screenshot](Move the turtle)
+![screenshot](Screenshot from 2019-04-19 15-53-54.png)
 
-## Change colour and set the width
+## Move the turtle
 Duration: 3:00
 
 Onto the final section. Get a `turtle.forward(90)` block from Turtle, snap this underneath the width block and replace the 90 with an `i` block from loops. Now back in turtle, get another `turtle.forward(90)` block and change forward to left using the dropdown then replace 90 with 59. These blocks will move the turtle to create the sprial shape.
