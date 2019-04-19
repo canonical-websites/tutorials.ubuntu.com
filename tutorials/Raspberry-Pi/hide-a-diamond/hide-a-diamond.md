@@ -1,7 +1,7 @@
 ---
 id: hide-a-diamond
-summary:  10 quick fire easy makes for the micro:bit
-categories: Raspberry-Pi
+summary:  Hide a block in the minecraft world and challenge a friend to find it
+categories: raspberrypi
 tags: projects, minecraft, fun, raspberry pi, gpio
 difficulty: 3
 status: published
