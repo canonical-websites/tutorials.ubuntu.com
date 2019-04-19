@@ -1,7 +1,7 @@
 ---
 id: turtle-spiral
 summary: Make a colourful rainbow spiral using the Python 3 mode and the turtle library.
-categories: python
+categories: python3
 tags: projects, turtle, spiral, colour, art
 difficulty: 4
 status: published
