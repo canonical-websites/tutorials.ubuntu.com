@@ -36,7 +36,7 @@ It has simple easy-to-use syntax, making it the perfect language for someone try
 
 ![screenshot](https://content.techgig.com/thumb/msid-67886887,width-860,resizemode-4/How-Developers-use-Python-Programming-Language.jpg?50999)
 
-## Launching the micro:bit mode
+## Launching the Python 3 mode
 Duration: 3:00
 
 So, you want to get started with EduBlocks and Python 3? 
