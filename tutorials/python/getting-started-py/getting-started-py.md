@@ -17,7 +17,7 @@ feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 The micro:bit mode within EduBlocks allows you to code in Python 3 directly from the web browser using a drag and drop interface. 
 
-![screenshot](https://test.edublocks.org/src/codelabs/turtle-spiral/img/3b3f53b69e591188.png)
+![screenshot](https://learn.edublocks.org/src/codelabs/turtle-spiral/img/3b3f53b69e591188.png)
 
 ## What is Python 3
 Duration: 2:00
@@ -49,7 +49,7 @@ Now, we want to select the Python 3 mode. To do this simply click on the blue se
 
 Once you've selected the Python mode, you should see it pop up:
 
-![screenshot](https://test.edublocks.org/src/codelabs/turtle-spiral/img/3b3f53b69e591188.png)
+![screenshot](https://learn.edublocks.org/src/codelabs/turtle-spiral/img/3b3f53b69e591188.png)
 
 ## Loading up samples
 Duration: 3:00
