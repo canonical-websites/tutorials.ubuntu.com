@@ -80,7 +80,7 @@ To launch ONLYOFFICE Desktop Editors go to the computer Application menu and f
 ![](https://media.tutorialforlinux.com/ubuntu/bionic/launchers/onlyoffice.png) 
 
 Congratulations! You have successfully installed ONLYOFFICE Desktop Editor!
-Now it’s time to start working with ONLYOFFICE: you can create a new text document, spreadsheet or presentation, edit an existing document stored on your machine, or connect your desktop suite to the cloud and work on files stored there - co-edit, manage users access, comment, review, chat. Enjoy!https://docs.google.com/drawings/d/e/2PACX-1vRw0e1jPoEmb2UxpFkQs1MrxMfBTLB33DT29J36uPvGE0AEueCZd3JV5963cNy8CQGSPq7U_gooyoVY/pub?w=960&h=720
+Now it’s time to start working with ONLYOFFICE: you can create a new text document, spreadsheet or presentation, edit an existing document stored on your machine, or connect your desktop suite to the cloud and work on files stored there - co-edit, manage users access, comment, review, chat. Enjoy!
 
 
 
