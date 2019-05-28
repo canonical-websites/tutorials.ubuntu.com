@@ -1,5 +1,5 @@
 ---
-id: install-onlyoffice-desktop-editors-on-ubuntu18.04
+id: install-onlyoffice-desktop-editors-on-ubuntu1804
 summary: Learn 3 main ways to install ONLYOFFICE Desktop Editors on Ubuntu 18.04
 categories: desktop
 tags: ONLYOFFICE, ONLYOFFICE Desktop Editors
