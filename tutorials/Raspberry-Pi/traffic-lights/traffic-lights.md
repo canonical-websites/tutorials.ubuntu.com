@@ -1,5 +1,5 @@
 ---
-id: create-a-drum-beat
+id: traffic-lights
 summary:  Learn how to make a traffic light circuit and code it with gpiozero. Written by Kerry Kidd.
 categories: raspberrypi
 tags: projects, gpio, circuits, traffic lights, easy
