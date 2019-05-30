@@ -203,13 +203,6 @@ Your code should now look like this:
 
 Your code is now complete!
 
-## Running the code
-Duration: 1:00
-
-You've now finished all of the code! It's time to check to see if we haven't missed a step or made a mistake. Now is your chance to check your code compared to the image below to check if it's all right.
-
-![screenshot](Screenshot from 2019-04-19 14-53-11.png)
-
 ## Run your code
 
 Now it’s time to run our code. Click on the green run button in the top right hand corner of the EduBlocks window. You'll then see the LEDs flash in a traffic light sequence.
