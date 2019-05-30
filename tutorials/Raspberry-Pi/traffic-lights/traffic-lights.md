@@ -13,7 +13,7 @@ feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 # Traffic Lights
 
-## Overview
+### Overview
 
 Within this tutorial we are going to create a simple circuit using 3 LEDs 1 x red, 1 x yellow and 1 x green. We are going to use EduBlocks and a Raspberry Pi to code and control the LEDs to simulate traffic lights.
 
@@ -28,7 +28,7 @@ You will need
 * 3 x male to male jumper wires
 * 4 x male to female jumper wires
 
-## Get Started
+### Get Started
 Duration: 5:00
 
 Once you've followed our Raspberry Pi getting started guide (if you haven't already done so), you'll want to launch EduBlocks connect. Go to the Raspberry Pi menu, select Programming and you'll see EduBlocks Connect Listed. Click on it to launch it. 
