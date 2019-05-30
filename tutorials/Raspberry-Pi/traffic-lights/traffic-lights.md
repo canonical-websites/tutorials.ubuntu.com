@@ -14,6 +14,7 @@ feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 # Traffic Lights
 
 ### Overview
+Duration: 1:00
 
 Within this tutorial we are going to create a simple circuit using 3 LEDs 1 x red, 1 x yellow and 1 x green. We are going to use EduBlocks and a Raspberry Pi to code and control the LEDs to simulate traffic lights.
 
