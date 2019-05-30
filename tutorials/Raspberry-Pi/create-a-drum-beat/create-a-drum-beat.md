@@ -5,7 +5,7 @@ categories: raspberrypi
 tags: projects, fun, sonic pi, drum, music, beat
 difficulty: 2
 status: published
-published: 2019-05-19
+published: 2019-04-19
 author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 

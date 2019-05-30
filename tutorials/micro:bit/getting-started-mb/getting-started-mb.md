@@ -5,7 +5,7 @@ categories: micro:bit
 tags: guide, micro:bit, getting started, help
 difficulty: 2
 status: published
-published: 2019-05-19
+published: 2019-04-19
 author: Joshua Lowe
 feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
