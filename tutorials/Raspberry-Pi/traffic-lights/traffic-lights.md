@@ -13,7 +13,7 @@ feedback_url: https://github.com/AllAboutCode/learn.edublocks.org/issues
 
 # Traffic Lights
 
-### Overview
+## Overview
 Duration: 1:00
 
 Within this tutorial we are going to create a simple circuit using 3 LEDs 1 x red, 1 x yellow and 1 x green. We are going to use EduBlocks and a Raspberry Pi to code and control the LEDs to simulate traffic lights.
@@ -29,7 +29,7 @@ You will need
 * 3 x male to male jumper wires
 * 4 x male to female jumper wires
 
-### Get Started
+## Get Started
 Duration: 5:00
 
 Once you've followed our Raspberry Pi getting started guide (if you haven't already done so), you'll want to launch EduBlocks connect. Go to the Raspberry Pi menu, select Programming and you'll see EduBlocks Connect Listed. Click on it to launch it. 
@@ -50,7 +50,7 @@ Once you've selected the Raspberry Pi mode, you should see it pop up:
 
 ![screenshot](Screenshot from 2019-04-19 13-00-06.png)
 
-### Creating the circuit
+## Creating the circuit
 Duration: 6:00
 
 Now its time to build our traffic light circuit!
@@ -68,7 +68,7 @@ Each LED has 1 x long leg, which is the positive leg. This connects to the pins 
 
 Once your circuit looks like the diagram above it's time to code.
 
-### Setting up libraries
+## Setting up libraries
 Duration: 3:00
 
 1. Click on `gpiozero`
@@ -83,7 +83,7 @@ Your code should look like this: <br>
 
 This imports Python Libraries. gpiozero helps us communicate with the GPIO pins on the Raspberry Pi and the time library lets us control pauses within the code.
 
-### Setting up the pins
+## Setting up the pins
 Duration: 6:00
 
 1. Within the `gpiozero` menu click on `Outputs`
@@ -104,7 +104,7 @@ Your code should now look like this:
 
 ![screenshot](Screenshot_2019-05-30 EduBlocks(1).png)
 
-### Create a loop
+## Create a loop
 Duration: 1:00
 
 1. Click on Basic
@@ -116,7 +116,7 @@ Your code should now look like this:
 
 All code from now on will go inside the `while True:`. This will keep our code running forever simulating traffic lights.
 
-### Turn the red LED on
+## Turn the red LED on
 Duration: 2:00
 
 1. Click on `LED`
@@ -132,7 +132,7 @@ Your code should look like this:
 
 This will turn the red LED on for 3 seconds.
 
-### Turn the yellow LED on
+## Turn the yellow LED on
 Duration: 2:00
 
 1. Click on `LED`
@@ -147,7 +147,7 @@ Your code should now look like this:
 
 The red LED is still on and the Yellow LED turns on for 1 second.
 
-### Turning the red and yellow LEDs off and the green LED on
+## Turning the red and yellow LEDs off and the green LED on
 Duration: 2:00
 
 1. Click on `LED`
@@ -171,7 +171,7 @@ Your code should now look like this:
 
 This turns the Red and Yellow LEDs off and turns the Green LED on for 3 seconds.
 
-### Turn the yellow LED back on
+## Turn the yellow LED back on
 Duration: 2:00
 
 1. Click on `LED`
@@ -190,7 +190,7 @@ Your code should now look like this:
 
 This turns the green LED off and the yellow LED back on for 1 second.
 
-### Turn the yellow LED off
+## Turn the yellow LED off
 Duration: 1:00
 
 1. Click on `LED`
@@ -204,7 +204,7 @@ Your code should now look like this:
 
 Your code is now complete!
 
-### Run your code
+## Run your code
 
 Now it’s time to run our code. Click on the green run button in the top right hand corner of the EduBlocks window. You'll then see the LEDs flash in a traffic light sequence.
 
