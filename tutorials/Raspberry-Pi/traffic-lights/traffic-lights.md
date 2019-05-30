@@ -49,7 +49,7 @@ Once you've selected the Raspberry Pi mode, you should see it pop up:
 
 ![screenshot](Screenshot from 2019-04-19 13-00-06.png)
 
-## Creating the circuit
+### Creating the circuit
 Duration: 6:00
 
 Now its time to build our traffic light circuit!
@@ -67,7 +67,7 @@ Each LED has 1 x long leg, which is the positive leg. This connects to the pins 
 
 Once your circuit looks like the diagram above it's time to code.
 
-## Setting up libraries
+### Setting up libraries
 Duration: 3:00
 
 1. Click on `gpiozero`
@@ -203,7 +203,7 @@ Your code should now look like this:
 
 Your code is now complete!
 
-## Run your code
+### Run your code
 
 Now it’s time to run our code. Click on the green run button in the top right hand corner of the EduBlocks window. You'll then see the LEDs flash in a traffic light sequence.
 
