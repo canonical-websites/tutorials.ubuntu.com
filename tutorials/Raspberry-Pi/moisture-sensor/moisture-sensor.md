@@ -19,7 +19,7 @@ This can be used as part of a bigger project to automate the watering of a plant
 You will need:
 * An internet connection
 * A Raspberry Pi with EduBlocks Connect installed. Follow the guide on the [Raspberry Pi page](https://edublocks.org/pi.html) to learn more.
-* A moisture sensor from, for example, ModMyPi:
+* A moisture sensor from, for example, [Pimoroni](https://shop.pimoroni.com/products/sparkfun-soil-moisture-sensor-with-screw-terminals)
 
 ![Sensor & circuit board](images/sensor.jpg)
 
