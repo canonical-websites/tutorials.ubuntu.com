@@ -29,7 +29,7 @@ The BBC micro:bit is a small microcontroller which was originally created to be 
   - A radio and bluetooth antenna
   - An edge connector for accessories
 
-![screenshot](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LUvJUfEMWg52HH-QocO%2F-LUvf02NvJwAYkCh6HZm%2F-LUvf74k_xK-IlvKnEQP%2FMicrobit-GIF-870-pix.gif?alt=media&token=2cc6a108-1e14-4512-9944-f3c79469bde7)
+![screenshot](https://www.kitronik.co.uk/wp/wp-content/uploads/2015/07/Microbit-GIF-870-pix.gif)
 
 ## Launching the micro:bit mode
 Duration: 3:00
@@ -69,7 +69,7 @@ Once inside the micro:bit mode, we have a range of different things we can do. B
 
 To load up a sample, click the samples button in the blue navbar at the top, this will load up the following dialog box: 
 
-![screenshot](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LUvJUfEMWg52HH-QocO%2F-LUvJb_V9vfqGhEUz25L%2F-LUvQDzsbiEmzTxYm_6F%2Fimage.png?alt=media&token=50596a5f-1b76-4dce-b0bd-a189806c0bf5)
+![screenshot](https://camo.githubusercontent.com/bb466f277380e59cbc695a69c55017c7206b767a/68747470733a2f2f626c6f627363646e2e676974626f6f6b2e636f6d2f76302f622f676974626f6f6b2d32383432372e61707073706f742e636f6d2f6f2f6173736574732532462d4c55764a5566454d5767353248482d516f634f2532462d4c55764a625f5639766671476845557a32354c2532462d4c557651447a736269456d7a5478596d5f3646253246696d6167652e706e673f616c743d6d6564696126746f6b656e3d35303539366135662d316237362d346463652d623062642d613138393830366330626635)
 
 Click on the blue open button next to the "Buttons" sample. 
 Once you've done this, a few blocks should appear in the workspace.
