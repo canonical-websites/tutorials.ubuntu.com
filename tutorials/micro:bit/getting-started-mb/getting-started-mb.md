@@ -74,7 +74,7 @@ To load up a sample, click the samples button in the blue navbar at the top, thi
 Click on the blue open button next to the "Buttons" sample. 
 Once you've done this, a few blocks should appear in the workspace.
 
-![screenshot](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LUvJUfEMWg52HH-QocO%2F-LUvJb_V9vfqGhEUz25L%2F-LUvQUn7XNM5yvi6vcZY%2Fimage.png?alt=media&token=ba499894-ec95-4ebb-a24f-332999fce9aa)
+![screenshot](https://camo.githubusercontent.com/de4569c6f4c494666b86ab758edff88af6c7486f/68747470733a2f2f626c6f627363646e2e676974626f6f6b2e636f6d2f76302f622f676974626f6f6b2d32383432372e61707073706f742e636f6d2f6f2f6173736574732532462d4c55764a5566454d5767353248482d516f634f2532462d4c55764a625f5639766671476845557a32354c2532462d4c557651556e37584e4d357976693676635a59253246696d6167652e706e673f616c743d6d6564696126746f6b656e3d62613439393839342d656339352d346562622d613234662d333332393939666365396161)
 
 ## Flashing code onto the micro:bit
 Duration: 3:00
