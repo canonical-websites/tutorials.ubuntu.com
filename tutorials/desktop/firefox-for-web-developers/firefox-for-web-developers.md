@@ -118,7 +118,7 @@ Our edited page is looking good, but there's a bit too much of a gap between the
 
 ![CSS rules for the <h2> element](images/rules_panel.png)
 
-The CSS rules include an entry that's setting the `margin-bottom` property to `2.25em`. Move the mouse over any rule and you'll see that checkboxes appear, letting you turn individual rules on and off wihout having to edit them. Turn off the `margin-bottom` rule to see what effect it's having on your heading. Turning it off completely makes the spacing a little too tight. Double-click on the value and change it to `1em` instead.
+The CSS rules include an entry that's setting the `margin-bottom` property to `2.25em`. Move the mouse over any rule and you'll see that checkboxes appear, letting you turn individual rules on and off without having to edit them. Turn off the `margin-bottom` rule to see what effect it's having on your heading. Turning it off completely makes the spacing a little too tight. Double-click on the value and change it to `1em` instead.
 
 Finally let's give our new element a bit of colour by adding a new rule. First we need to choose a colour to use and, as we want our changes to fit in with the rest of the page, it seems appropriate to use the same shade of orange that's in the page header. But what shade is that, exactly? Fortunately the inspector has an eyedropper tool that will let us pick the colour of any pixel in our web page. It's up at the top right of the DOM section, next to the search field. Just click the button and move your mouse back into the page area, where you'll discover the pointer has changed into a magnifying loupe that makes it easy to pick a specific pixel. Click in the orange header and the hexadecimal colour value will be copied to your clipboard.
 
@@ -271,7 +271,7 @@ But there's one big reason why you might ***not*** want to use it:
 
 * Firefox Developer Edition is downloaded from Mozilla, and gets its updates from them directly.
 
-This means that the Developer Edition releases aren't curated, tested or patched by Canonical, and don't incude any Ubuntu-specific fixes or additions. It also means that updates to the browser are not affected by your usual Ubuntu update settings. It's ***not*** installed via the usual "apt" command line tools, or the Ubuntu Software application.
+This means that the Developer Edition releases aren't curated, tested or patched by Canonical, and don't include any Ubuntu-specific fixes or additions. It also means that updates to the browser are not affected by your usual Ubuntu update settings. It's ***not*** installed via the usual "apt" command line tools, or the Ubuntu Software application.
 
 If you still want to proceed with installing the Developer Edition, read on…
 

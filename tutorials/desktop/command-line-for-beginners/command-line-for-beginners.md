@@ -18,7 +18,7 @@ Duration: 1:00
 
 The Linux command line is a text interface to your computer. Often referred to as the shell, terminal, console, prompt or various other names, it can give the appearance of being complex and confusing to use. Yet the ability to copy and paste commands from a website, combined with the power and flexibility the command line offers, means that using it may be essential when trying to follow instructions online — including many on this very website!
 
-This tutorial will teach you a little of the history of the command line, then walk you through some practical excercises to become familiar with a few basic commands and concepts. We'll assume no prior knowledge, but by the end we hope you'll feel a bit more comfortable the next time you're faced with some instructions that begin "Open a terminal…"
+This tutorial will teach you a little of the history of the command line, then walk you through some practical exercises to become familiar with a few basic commands and concepts. We'll assume no prior knowledge, but by the end we hope you'll feel a bit more comfortable the next time you're faced with some instructions that begin "Open a terminal…"
 
 
 ### What you'll learn
@@ -33,7 +33,7 @@ This tutorial will teach you a little of the history of the command line, then w
 ### What you'll need
 * A computer running Ubuntu or some other version of Linux
 
-Every Linux system includes a command line of one sort or another. This tutorial includes some specfic steps for Ubuntu 18.04 but most of the content should work regardless of your Linux distribution.
+Every Linux system includes a command line of one sort or another. This tutorial includes some specific steps for Ubuntu 18.04 but most of the content should work regardless of your Linux distribution.
 
 
 ## A brief history lesson
@@ -45,7 +45,7 @@ Compared with graphics, text is very light on resources. Even on machines from t
 
 When logged into a Unix mainframe via a terminal users still had to manage the sort of file management tasks that you might now perform with a mouse and a couple of windows. Whether creating files, renaming them, putting them into subdirectories or moving them around on disk, users in the 70s could do everything entirely with a textual interface.
 
-Each of these tasks required its own program or command: one to change directories (`cd`), another to list their contents (`ls`), a third to rename or move files (`mv`), and so on. In order to coordinate the execution of each of these programs, the user would connect to one single master program that could then be used to launch any of the others. By wrapping the user's commands this "shell" program, as it was known, could provide common capabilities to any of them — such as the ability to pass data from one command straight into another, or to use special wildcard characters to work with lots of similarly named files at once. Users could even write simple code (called "shell scripts") which could be used to automate long series of shell commands in order to make complex tasks easier. The original Unix shell program was just called `sh`, but it has been extended and superceded over the years, so on a modern Linux system you're most likely to be using a shell called `bash`. Don't worry too much about which shell you have — all the content in this tutorial will work on just about all of them.
+Each of these tasks required its own program or command: one to change directories (`cd`), another to list their contents (`ls`), a third to rename or move files (`mv`), and so on. In order to coordinate the execution of each of these programs, the user would connect to one single master program that could then be used to launch any of the others. By wrapping the user's commands this "shell" program, as it was known, could provide common capabilities to any of them — such as the ability to pass data from one command straight into another, or to use special wildcard characters to work with lots of similarly named files at once. Users could even write simple code (called "shell scripts") which could be used to automate long series of shell commands in order to make complex tasks easier. The original Unix shell program was just called `sh`, but it has been extended and superseded over the years, so on a modern Linux system you're most likely to be using a shell called `bash`. Don't worry too much about which shell you have — all the content in this tutorial will work on just about all of them.
 
 Linux is a sort-of-descendent of Unix. The core part of Linux is designed to behave similarly to a Unix system, such that most of the old shells and other text-based programs run on it quite happily. In theory you could even hook up one of those old 1970s terminals to a modern Linux box, and access the shell through that. But these days it's far more common to use a software terminal: that same old Unix-style text interface, but running in a window alongside your graphical programs. Let's see how you can do that yourself…
 
@@ -65,7 +65,7 @@ However you launch your terminal, you should end up with a rather dull looking w
 
 ![A new terminal window in Ubuntu 18.04](images/blank_terminal.png)
 
-Let's run our first command. Cick the mouse into the window to make sure that's where your keystrokes will go, then type the following command, ***all in lower case***, before pressing the **Enter** or **Return** key to run it.
+Let's run our first command. Click the mouse into the window to make sure that's where your keystrokes will go, then type the following command, ***all in lower case***, before pressing the **Enter** or **Return** key to run it.
 
 ```Bash
 pwd
@@ -271,7 +271,7 @@ mkdir -p -v dir4/dir5
 mkdir -pv dir4/dir5
 ```
 
-Now we know how to create multiple directories just by passing them as separare arguments to the `mkdir` command. But suppose we want to create a directory with a space in the name? Let's give it a go:
+Now we know how to create multiple directories just by passing them as separate arguments to the `mkdir` command. But suppose we want to create a directory with a space in the name? Let's give it a go:
 
 ```Bash
 mkdir another folder
@@ -326,7 +326,7 @@ echo "This is a third test" > test_3.txt
 ls
 ```
 
-You should `cat` each of these files to theck their contents. But `cat` is more than just a file viewer - its name comes from 'con**cat**enate', meaning "to link together". If you pass more than one filename to `cat` it will output each of them, one after the other, as a single block of text:
+You should `cat` each of these files to check their contents. But `cat` is more than just a file viewer - its name comes from 'con**cat**enate', meaning "to link together". If you pass more than one filename to `cat` it will output each of them, one after the other, as a single block of text:
 
 ```Bash
 cat test_1.txt test_2.txt test_3.txt
@@ -515,7 +515,7 @@ Unlike graphical interfaces, `rm` doesn't move files to a folder called "trash" 
 ## A bit of plumbing
 Duration: 8:00
 
-Today's computers and phones have the sort of graphical and audio capabilities that our 70s terminal users couldn't even begin to imagine. Yet still text prevails as a means to organise and categorise files. Whether it's the file name itself, GPS coordintates embedded in photos you take on your phone, or the metadata stored in an audio file, text still plays a vital role in every aspect of computing. It's fortunate for us that the Linux command line includes some powerful tools for manipulating text content, and ways to join those tools together to create something more capable still.
+Today's computers and phones have the sort of graphical and audio capabilities that our 70s terminal users couldn't even begin to imagine. Yet still text prevails as a means to organise and categorise files. Whether it's the file name itself, GPS coordinates embedded in photos you take on your phone, or the metadata stored in an audio file, text still plays a vital role in every aspect of computing. It's fortunate for us that the Linux command line includes some powerful tools for manipulating text content, and ways to join those tools together to create something more capable still.
 
 Let's start with a simple question. How many lines are there in your ***combined.txt*** file? The `wc` (**w**ord **c**ount) command can tell us that, using the `-l` switch to tell it we only want the line count (it can also do character counts and, as the name suggests, word counts):
 
@@ -574,7 +574,7 @@ man uniq
 
 Because this type of documentation is accessed via the `man` command, you'll hear it referred to as a "man page", as in "check the man page for more details". The format of man pages is often terse — think of them more as a quick overview of a command than a full tutorial. They're often highly technical, but you can usually skip most of the content and just look for the details of the option or argument you're using.
 
-The `uniq` man page is a typical example in that it starts with a brief one-line description of the command, moves on to a synopsis of how to use it, then has a detailed description of each option or parameter. But whilst man pages are invaluable, they can also be inpenetrable. They're best used when you need a reminder of a particular switch or parameter, rather than as a general resource for learning how to use the command line. Nevertheless, the first line of the **DESCRIPTION** section for `man uniq` does answer the question as to why duplicate lines haven't been removed: it only works on ***adjacent*** matching lines.
+The `uniq` man page is a typical example in that it starts with a brief one-line description of the command, moves on to a synopsis of how to use it, then has a detailed description of each option or parameter. But whilst man pages are invaluable, they can also be impenetrable. They're best used when you need a reminder of a particular switch or parameter, rather than as a general resource for learning how to use the command line. Nevertheless, the first line of the **DESCRIPTION** section for `man uniq` does answer the question as to why duplicate lines haven't been removed: it only works on ***adjacent*** matching lines.
 
 The question, then, is how to rearrange the lines in our file so that duplicate entries are on adjacent lines. If we were to sort the contents of the file alphabetically, that would do the trick. Unix offers a `sort` command to do exactly that. A quick check of `man sort` shows that we can pass a file name directly to the command, so let's see what it does to our file:
 

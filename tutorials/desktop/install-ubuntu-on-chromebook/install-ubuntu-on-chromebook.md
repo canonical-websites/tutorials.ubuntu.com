@@ -75,7 +75,7 @@ You'll see your terminal processing these packages one by one. This will take so
 positive
 : **Alternative Installation Options**
 Depending on the specification of your device, the Unity desktop may be too demanding to work well for you. If you want a more lightweight system, you can install LXDE or XFCE by replacing `-t unity` with `-t lxde` or `-t xfce`. GNOME fans can also try `-t gnome` instead.
-You can also encrypt your chroot with a passphrase by adding `-e` to the end of the installation command before excuting it. This will require that you type in the encryption password you've chosen each time you enter the chroot environment.
+You can also encrypt your chroot with a passphrase by adding `-e` to the end of the installation command before executing it. This will require that you type in the encryption password you've chosen each time you enter the chroot environment.
 
 ## Switching between OSes
 Duration: 2:00
@@ -93,7 +93,7 @@ Like playing games? `sudo apt install steam` in a terminal gets you Valve's Stea
 
 Enjoy irony? `sudo apt install firefox`. Have fun running Firefox on ChromeOS!
 
-Want to browse for other ideas? `sudo apt install gnome-software ubuntu-software` gets you the Software tool for access to a wide variety of useful applications. Install LibreOffice for full office productivity, GIMP for desktop image editing, Audacity for audio editng, or Kodi for your multimedia enjoyment. If you're a developer, install your IDE of choice and hack away!
+Want to browse for other ideas? `sudo apt install gnome-software ubuntu-software` gets you the Software tool for access to a wide variety of useful applications. Install LibreOffice for full office productivity, GIMP for desktop image editing, Audacity for audio editing, or Kodi for your multimedia enjoyment. If you're a developer, install your IDE of choice and hack away!
 
 Really, practically anything you could run on a "real Ubuntu laptop" could be run here. Have fun!
 
