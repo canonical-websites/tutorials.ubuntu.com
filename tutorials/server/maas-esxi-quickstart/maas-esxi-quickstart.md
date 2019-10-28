@@ -80,7 +80,7 @@ After loading the driver, the image creation can be started:
 sudo packer build -var 'vmware_esxi_iso_path=~/maas-esxi/VMware-VMvisor-Installer-6.7.0-8169922.x86_64.iso' vmware-esxi.json
 ```
 
-Please note that you can watch the image creation process by opening a VNC session on `127.0.0.1:5947`. The successfull completion of the image creation with result in the following output:
+Please note that you can watch the image creation process by opening a VNC session on `127.0.0.1:5947`. The successful completion of the image creation with result in the following output:
 
 ```bash
 Warnings for build 'qemu':

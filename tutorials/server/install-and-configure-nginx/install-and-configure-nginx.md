@@ -146,7 +146,7 @@ If you need more guidance on using Nginx, help is always at hand:
 
 ### Further reading:
 
-* [Nginx Begineer’s Guide][nginxguide]
+* [Nginx Beginner's Guide][nginxguide]
 * [The Complete NGINX Cookbook – free e-book from O’Reilly][cookbook]
 
 <!-- LINKS -->

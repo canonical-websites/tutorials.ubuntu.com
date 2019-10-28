@@ -302,7 +302,7 @@ Expected output should look like:
 ## Conclusion
 Duration: 02:00
 
-This tutorial should have gotten you setup with Candid and LXD in a pretty minimal and artifical environment.
+This tutorial should have gotten you setup with Candid and LXD in a pretty minimal and artificial environment.
 
 For a production environment, you'd at least want:
 

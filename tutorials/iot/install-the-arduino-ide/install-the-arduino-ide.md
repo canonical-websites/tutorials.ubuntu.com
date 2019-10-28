@@ -31,7 +31,7 @@ To get us up and running with Arduino, we are going to install the **Arduino IDE
 ## Installing via a tarball
 Duration: 3:00
 
-We can download the latest version of the Arduino IDE from the Arduino website ([here](https://www.arduino.cc/en/Main/Software)) as a *tarball*. A tarball is a type of compressed folder, like a `.zip` file, commonly used to distrubute software in Linux; its file extension is usually `.tar.xz` (or `.tar.gz`, if it uses _Z compression_. We'll get to this later).
+We can download the latest version of the Arduino IDE from the Arduino website ([here](https://www.arduino.cc/en/Main/Software)) as a *tarball*. A tarball is a type of compressed folder, like a `.zip` file, commonly used to distribute software in Linux; its file extension is usually `.tar.xz` (or `.tar.gz`, if it uses _Z compression_. We'll get to this later).
 
 In order to extract the files we need from the tarball, we can open a terminal, `cd` to where the downloaded tarball is, then run 
 

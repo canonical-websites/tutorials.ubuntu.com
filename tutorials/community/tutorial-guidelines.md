@@ -179,7 +179,7 @@ The overview contains at least three small parts:
 
 ### The summary
 
-The first paragraph or parapgraphs of the overview is a summary of the tutorial's objectives, its purpose and why the reader should go through it. An image can be included, as well as external links.
+The first paragraph or paragraphs of the overview is a summary of the tutorial's objectives, its purpose and why the reader should go through it. An image can be included, as well as external links.
 
 #### Example
 
@@ -436,7 +436,7 @@ With another list of bullet points, provide a list of external resources to get 
 ```markdown
 ### Further readings
 
-* The snapcraft documention has everything you need if you want to look more
+* The snapcraft documentation has everything you need if you want to look more
   into [hooks](https://docs.snapcraft.io/build-snaps/hooks)
   and [scriptlets](https://docs.snapcraft.io/build-snaps/scriptlers).
  ```

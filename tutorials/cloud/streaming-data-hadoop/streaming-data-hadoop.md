@@ -86,7 +86,7 @@ So in this tutorial we are going to be streaming Kafka data, but we need somewhe
 
 ### Deploy via the Juju GUI
 
-The easisest was to get going is via the GUI. 
+The easiest was to get going is via the GUI. 
 
 Go to jujucharms.com and in the search the store box on the toolbar, enter the phrase, Anssr Hadoop. In the results bar you'll see a bundle, select this bundle and click on Add to new model in the top of the bundle page.
 

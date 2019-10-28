@@ -261,7 +261,7 @@ There are many commands that ship with MicroK8s. We've only seen the essential o
  - microk8s.kubectl: Interact with kubernetes
  - microk8s.config: Shows the kubernetes config file
  - microk8s.istioctl: Interact with the istio services; needs the istio addon to be enabled
- - microk8s.inspect: Performs a quick inspection of the MicroK8s intallation
+ - microk8s.inspect: Performs a quick inspection of the MicroK8s installation
  - microk8s.reset: Resets the infrastructure to a clean state
  - microk8s.stop: Stops all kubernetes services
  - microk8s.start: Starts MicroK8s after it is being stopped

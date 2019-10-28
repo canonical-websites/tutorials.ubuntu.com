@@ -232,7 +232,7 @@ Duration: 30:00
 
 ### Preliminary notes
 
-On ubuntu desktop, you can run any examples you want (graphical and non graphical).  Most of the samples are rendering some graphical UI. Those have the **rs_** prefix for realsense SDK and **cpp_** prefix for those using librealsense (the bare protocole).
+On ubuntu desktop, you can run any examples you want (graphical and non graphical).  Most of the samples are rendering some graphical UI. Those have the **rs_** prefix for realsense SDK and **cpp_** prefix for those using librealsense (the bare protocol).
 
 Ubuntu Core, on itself, doesn’t have any graphical server by default. Consequently, you can’t run most of the samples rendering some graphical UI. However, there are a lot of samples with a **_web** appendix. They are spawning a web interface that you can access to the network, showing you real time data and capture from the camera.
 

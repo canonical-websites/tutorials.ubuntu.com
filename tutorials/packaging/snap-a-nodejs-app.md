@@ -337,7 +337,7 @@ Time: Nov 15 10:57:00
 Log: apparmor="DENIED" operation="create" profile="snap.chuck-norris-webserver.node-service" pid=5790 comm="node" family="inet" sock_type="stream" protocol=0 requested_mask="create" denied_mask="create"
 ```
 
-This tool is filtering the output of `/var/log/syslog` to only show the denials related to your snap. However, sometimes, getting the log context (like if your command was a service, we would see the stacktrace in the `syslog` file) or additional informations are only in that file. So, it’s good idea to sometimes have a look there as well.
+This tool is filtering the output of `/var/log/syslog` to only show the denials related to your snap. However, sometimes the log context (like if your command was a service, we would see the stacktrace in the `syslog` file) or additional information is only in that file. So it’s good idea to sometimes have a look there as well.
 
 The tool will parse the generated application logs and may suggest interfaces to add directly to your snap. It doesn’t seem to be the case here. We need then to investigate and think a little bit more!
 

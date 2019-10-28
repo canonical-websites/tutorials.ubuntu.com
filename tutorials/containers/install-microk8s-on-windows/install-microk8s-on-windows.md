@@ -113,7 +113,7 @@ Duration: 6:00
 
 While MicroK8s has a lot of useful add-ons, for simplicity's sake we'll enable and use the dns and dashboard addons. We can view the Grafana dashboard for our deployment.
 
-Let's enable the add-ons. Use the follwoing command:
+Let's enable the add-ons. Use the following command:
 
 ```
 multipass exec microk8s-vm -- /snap/bin/microk8s.enable dns dashboard
