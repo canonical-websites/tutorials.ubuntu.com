@@ -5,7 +5,7 @@ categories: server
 tags: corda, blockchain, opensource
 difficulty: 3
 status: published
-image: https://www.corda.net/wp-content/uploads/2017/01/16-10-31_R3_Corda_Master-Logo-04-1-e1516308027926-1024x455.png
+image: https://tutorials.ubuntu.com/es6-bundled/src/codelabs/get-started-with-Corda/img/a58d4fd45ecab60a.png
 feedback_url: https://github.com/canonical-websites/tutorials.ubuntu.com/issues
 published: 2018-07-11
 author: Jonathan Sphar <Jonathan.Sphar@r3.com>
