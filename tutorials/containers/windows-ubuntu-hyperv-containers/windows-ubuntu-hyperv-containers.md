@@ -52,7 +52,7 @@ After reboot, Docker will be started. Docker requires that the Hyper-V feature i
 ## Download the Ubuntu container image
 Duration: 4:00
 
-Download the latest Ubuntu container image for Windows from the [Canonical Partner Images website](https://partner-images.canonical.com/hyper-v/linux-containers/xenial/current/)
+Download the latest Ubuntu container image for Windows from the [Canonical Partner Images website](https://partner-images.canonical.com/hyper-v/linux-containers/bionic/current/)
 
 Once downloaded, extract the image, using e.g. 7-Zip, or XZ Utils:
 ```bash
