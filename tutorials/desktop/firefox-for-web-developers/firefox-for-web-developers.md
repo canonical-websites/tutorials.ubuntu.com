@@ -308,7 +308,7 @@ In this tutorial you've learnt how to access the web developer tools that are bu
 
 A tutorial like this can only scratch the surface of the developer tools. Even our tour of the inspector and the console hasn't come close to revealing all their features. And the tools are constantly evolving: each release of Firefox brings new capabilities and whole new tools. What we've covered here is enough for a beginner to get started, but if you're serious about web development it pays to understand as much as possible about the tools that are available to you, and the jumble of different languages you'll be using. Here are a few links to help you progress:
 
-* Visit [Mozilla's documentation hub for the developer tools](https://developer.mozilla.org/son/docs/Tools) to read more about the features and capabilities of each tab in the developer tools panel.
+* Visit [Mozilla's documentation hub for the developer tools](https://developer.mozilla.org/en-US/docs/Tools) to read more about the features and capabilities of each tab in the developer tools panel.
 * Read [Mozilla's web developer blog](https://hacks.mozilla.org/) and sign up for their newsletter to be kept up to date with the latest improvements to Firefox, as well as forthcoming changes that might affect your web pages.
 * Use [MDN web docs](https://developer.mozilla.org/) as a one-stop reference to HTML, CSS, JavaScript and more, including compatibility tables to help you avoid using proprietary or poorly supported features.
  * If you're new to web development you might find the [getting started](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) pages particularly helpful.
