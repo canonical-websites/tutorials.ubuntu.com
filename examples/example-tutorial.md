@@ -438,7 +438,7 @@ With another list of bullet points, provide a list of external resources to get 
 
 * The snapcraft documention has everything you need if you want to look more
   into [hooks](https://docs.snapcraft.io/build-snaps/hooks)
-  and [scriptlets](https://docs.snapcraft.io/build-snaps/scriptlers).
+  and [scriptlets](https://snapcraft.io/docs/scriptlets).
  ```
 
  To use everything the tutorials engine has to offer, let's look at some syntax tips.
