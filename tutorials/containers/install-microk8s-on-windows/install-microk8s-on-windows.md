@@ -225,7 +225,7 @@ multipass exec microk8s-vm -- /snap/bin/microk8s.stop
 [nodeport]: https://kubernetes.io/docs/concepts/services-networking/service/#nodeport
 [snap-channels]: https://docs.snapcraft.io/channels/551
 [ubuntu-kubernetes]: https://ubuntu.com/kubernetes
-[charmed-kubernetes]: https://tutorials.ubuntu.com/tutorial/get-started-canonical-kubernetes#0
+[charmed-kubernetes]: https://tutorials.ubuntu.com/tutorial/get-started-charmed-kubernetes#0
 [contact]: https://ubuntu.com/kubernetes#get-in-touch
 [snapd-documentation]: https://snapcraft.io/docs/installing-snapd
 [multipass-releases]: https://github.com/CanonicalLtd/multipass/releases
