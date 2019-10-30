@@ -342,7 +342,7 @@ You should successfully have built your snap in a clean environment, configured 
 
 ### Next steps
 
-  - Travis CI is very nice, but it can only build snaps for the amd64 architecture. If you need to deliver your snaps for users in other architectures like armhf and arm64, you can [use the snapcraft build service].
+  - Travis CI is very nice, but it can only build snaps for the AMD64 and Arm64 architectures. If you need to deliver your snaps for users in other architectures like armhf, you can [use the snapcraft build service].
   - Learn some more advanced techniques on how to use snaps by looking for other [tutorials]!
   - Join the snapcraft.io community by subscribing to [our forum].
 
