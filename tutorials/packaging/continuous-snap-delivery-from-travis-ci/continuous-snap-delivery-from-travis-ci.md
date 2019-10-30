@@ -5,7 +5,7 @@ categories: packaging
 tags: snapcraft,travis,ci,cd
 difficulty: 3
 status: published
-published: 2017-07-13
+published: 2019-10-31
 author: Lea Arias <leo.arias@canonical.com>
 feedback_url: https://github.com/canonical-websites/tutorials.ubuntu.com/issues
 
@@ -28,7 +28,7 @@ Travis CI is a continuous integration service that can be used to build, test an
 ### What you’ll need
   - Ubuntu 16.04 or later
   - A little knowledge of the Linux command line and git
-
+  - A snap store account at [https://dashboard.snapcraft.io]
 
 survey
 : How will you use this tutorial?
