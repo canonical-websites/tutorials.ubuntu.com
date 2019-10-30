@@ -18,7 +18,7 @@ Duration: 1:00
 
 Travis CI is a continuous integration service that can be used to build, test and deliver software. Travis is free for Free Software projects, while [Travis Pro] is available for private GitHub repositories. We will use Travis CI to build your snap and push it automatically to the `edge` channel of the [snap store](https://dashboard.snapcraft.io) every time you make a change to your branch in GitHub.
 
-![](images/1.png)
+![Travis CI Logo](images/travis-logo.png)
 
 ### What you’ll learn
   - How to build your snap in Travis CI
