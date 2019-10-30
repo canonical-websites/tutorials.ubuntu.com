@@ -238,7 +238,7 @@ to decrypt credentials during 'after_success' phase and install latest
 
 See the example below::
 
-	sudo: required
+```
 	services:
 	- docker
 	after_success:
@@ -253,11 +253,13 @@ See the example below::
     	    snapcraft && snapcraft push *.snap --release edge"
   	  on:
     	    branch: master
+```
 
 The dedicated credentials will be functional for exactly 1 year or until
 a password change on the related Ubuntu One SSO account. In order to
 refresh the project credentials, please run the following command:
 
+```
 	$ snapcraft enable-ci travis --refresh
 ```
 
