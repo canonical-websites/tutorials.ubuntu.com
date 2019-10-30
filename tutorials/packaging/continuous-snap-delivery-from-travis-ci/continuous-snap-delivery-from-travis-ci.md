@@ -16,9 +16,9 @@ feedback_url: https://github.com/canonical-websites/tutorials.ubuntu.com/issues
 ## Overview
 Duration: 1:00
 
-Travis CI is a continuous integration service that can be used to build, test and deliver software. Travis is free for Free Software projects, while [Travis Pro] is available for private GitHub repositories. We will use Travis CI to build your snap and push it automatically to the `edge` channel of the [snap store](https://dashboard.snapcraft.io) every time you make a change to your branch in GitHub.
+Travis CI is a continuous integration service that can be used to build, test and deliver software. [Travis CI](https://travis-ci.com/) is free for Free Software projects, and available for private GitHub repositories. We will use Travis CI to build your snap and push it automatically to the `edge` channel of the [snap store](https://dashboard.snapcraft.io) every time you make a change to your branch in GitHub.
 
-![Travis CI Logo](images/travis-logo.png)
+![Travis CI Logo](images/1-travis-logo.png)
 
 ### What you’ll learn
   - How to build your snap in Travis CI
@@ -49,25 +49,27 @@ survey
 ## Setting up GitHub
 Duration: 7:00
 
-Before we can start the continuous delivery of snaps to the store, we will need a project with snap packaging. It has to be hosted on GitHub to execute the Travis CI job.
+Before we can start the continuous delivery of snaps to the store, we will need a project with snap packaging hosted on GitHub.
 
-If you already have your free software project in GitHub packaged as a snap, you can skip this step and jump straight to the next one. If you have your project in GitHub but haven’t packaged it yet, we have many tutorials that can help you making your snap. The “[Create your first snap]” tutorial is a good place to start.
+If you already have your project in GitHub packaged as a snap, you can skip this step and jump straight to the next one. If you have your project in GitHub but haven’t packaged it yet, we have many tutorials that can help you making your snap. The “[Create your first snap]” tutorial is a good place to start.
 
 Let’s set up one GitHub project here, in case you don’t have one ready.
 
 First, go to [https://github.com] and sign up. Then, go to [https://github.com/new] where we will fill the details of our new repository. The only required field is the repository name where you can enter something like `hello-snap-yourusername`. For example, this is how the form looks like for me:
 
-![](images/2.png)
+![a new GitHub repository named hello-world-snap](images/2-create-new-GitHub-repo.png)
 
 Next, click the "Create repository" button to get an empty repository in GitHub. Let’s put our snap project in there!
 
-Open a terminal, and run the following commands. The first one is to install git:
+The next step, is adding a `snapcraft.yaml` file to define your snap package. To do this locally, open a terminal, and run the following commands.
+
+The first one is to install git:
 
 ``` bash
 sudo apt install git
 ```
 
-Now, clone your repository to your local workspace, using the address displayed in GitHub. Something like this, but with your username instead of mine:
+Now, clone your repository to your local workspace, using the address displayed in GitHub. Something like this, but with your username:
 
 
 ``` bash
