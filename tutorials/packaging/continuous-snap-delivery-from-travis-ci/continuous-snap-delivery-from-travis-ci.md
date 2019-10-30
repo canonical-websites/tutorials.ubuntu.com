@@ -55,7 +55,7 @@ If you already have your project in GitHub packaged as a snap, you can skip this
 
 Let’s set up one GitHub project here, in case you don’t have one ready.
 
-First, go to [https://github.com] and sign up. Then, go to [https://github.com/new] where we will fill the details of our new repository. The only required field is the repository name where you can enter something like `hello-snap-yourusername`. For example, this is how the form looks like for me:
+First, go to [https://github.com] and sign up. Then, go to [https://github.com/new] where we will fill the details of our new repository. The only required field is the repository name where you can enter something like `hello-snap-yourusername`. That might look something like this:
 
 ![a new GitHub repository named hello-world-snap](images/2-create-new-GitHub-repo.png)
 
@@ -115,13 +115,13 @@ We now have a GitHub project containing packaging details for a snap and it’s 
 ## Setting up Travis CI
 Duration: 2:00
 
-To use Travis CI, first we will have to sign up there. Let’s go to [https://travis-ci.org/auth] and click "Sign in with GitHub". Then, click "Authorize application" to allow Travis to access your GitHub account.
+To use Travis CI, first we will have to sign up there. Let’s go to [https://travis-ci.com/auth] and click "Sign in with GitHub". Then, click "Authorize application" to allow Travis to access your GitHub account.
 
-Now, enable the GitHub repository of your snap by flipping the switch next to it at [https://travis-ci.org/profile/]
+Now, enable the GitHub repository of your snap by clicking the "Activate repositories on GitHub" button at [[https://travis-ci.com/profile/], and select the repositories you want to use with Travis CI on [https://github.com/apps/travis-ci]
 
-![](images/3.png)
+![Add the GitHub repository to Travis CI](images/3-add-GitHub-repos-to-travis.png)
 
-We need a `.travis.yml` file for your project. Travis CI will run the steps specified in this file on every pull request and every time a change is pushed to the master branch. These steps are going to be a few bash commands and scripts.
+We need a `.travis.yml` file for your project. Travis CI will run the steps specified in this file on every pull request and every time we make a change to any of the branches. These steps will be a few bash commands and scripts to run your tests and build your code.
 
 First, create a file named `.travis.yml` in your project folder, with the following content:
 
@@ -129,14 +129,14 @@ First, create a file named `.travis.yml` in your project folder, with the follow
 language: bash
 ```
 
-Later you can use Travis CI to run your tests. For that you will have to adjust this file depending on the language of your project, and add the install and script steps. But for now, we don’t need any of that as we’ll just make continuous delivery to the store.
+Later you can use Travis CI to run your tests. For that you will have to adjust this file depending on the language of your project, and add the install and script steps to test and build your snap before publishing. However, we don’t need any of that yet - as we’ll just focus on continuous delivery to the store.
 
-In the next step we’ll make sure that your snap can be built successfully in Travis CI, so we can push the generated snap to the store.
+In the next step, we’ll make sure that your snap can be built successfully in Travis CI, so we can push the generated snap to the store.
 
 ## Building the snap in a clean environment
 Duration: 5:00
 
-Travis CI uses a build environment based on Ubuntu 14.04, which is missing some requirements for running snapcraft. However, it does have support for Docker, so we will use a Docker container to build the snap.
+Travis CI uses a [build environment based on Ubuntu 16.04](https://docs.travis-ci.com/user/reference/overview/) and it has Docker support, so we will use a Docker container to build the snap.
 
 Before we build our snap in Travis CI’s executors, we need to make sure the snap builds correctly in a Docker container.
 
@@ -144,9 +144,9 @@ Positive
 : **The need for a clean environment**
 When you build a snap on your machine, it could be using some dependencies that are already installed but you forgot to declare as `build-packages` in the snapcraft.yaml.
 This means that when somebody tries to build the same snap on a different machine, those undeclared packages could be missing and the build would fail.
-A clean environment, such as a default Ubuntu 14.04 or 16.04 in a container, ensures reproducible builds.
+A clean environment, such as a default Ubuntu 14.04 or 18.04 in a container, ensures reproducible builds.
 
-Let’s install Docker, to get the same environment that Travis CI will use to build the snap:
+Let’s install Docker locally, to get the same environment that Travis CI will use to build the snap:
 
 
 ```bash
@@ -351,7 +351,6 @@ You should successfully have built your snap in a clean environment, configured 
   - [Travis CI documentation] has a lot of information about adding tests and other things to your CI executions.
   - [Snapcraft CI integration documentation], with information about Travis and Launchpad integrations.
 
-[Travis Pro]: https://docs.travis-ci.com/user/travis-pro/
 [Create your first snap]: /tutorial/create-your-first-snap
 [https://github.com]: https://github.com/
 [https://github.com/new]: https://github.com/new
