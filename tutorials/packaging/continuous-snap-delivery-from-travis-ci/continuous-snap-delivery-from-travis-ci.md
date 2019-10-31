@@ -16,7 +16,7 @@ feedback_url: https://github.com/canonical-websites/tutorials.ubuntu.com/issues
 ## Overview
 Duration: 1:00
 
-Travis CI is a continuous integration service that can be used to build, test and deliver software. [Travis CI](https://travis-ci.com/) is free for Free Software projects, and available for private GitHub repositories. We will use Travis CI to build your snap and push it automatically to the `edge` channel of the [snap store](https://dashboard.snapcraft.io) every time you make a change to your branch in GitHub.
+Travis CI is a continuous integration service that can be used to build, test and deliver software. [Travis CI](https://travis-ci.com/) is free for Free Software projects, and available for private GitHub repositories. We will use Travis CI to build your snap and push it automatically to the `edge` channel of the [snap store](https://snapcraft.io/store) every time you make a change to your branch in GitHub.
 
 ![Travis CI Logo](images/1-travis-logo.png)
 
@@ -51,7 +51,7 @@ Duration: 7:00
 
 Before we can start the continuous delivery of snaps to the store, we will need a project with snap packaging hosted on GitHub.
 
-If you already have your project in GitHub packaged as a snap, you can skip this step and jump straight to the next one. If you have your project in GitHub but haven’t packaged it yet, we have many tutorials that can help you making your snap. The “[Create your first snap]” tutorial is a good place to start.
+If you already have your project in GitHub packaged as a snap, you can skip this step and jump straight to the next one. If you have your project in GitHub but haven’t packaged it yet, we have many tutorials that can help you making your snap. The "[Create your first snap]" tutorial is a good place to start.
 
 Let’s set up one GitHub project here, in case you don’t have one ready.
 
@@ -117,7 +117,7 @@ Duration: 2:00
 
 To use Travis CI, first we will have to sign up there. Let’s go to [https://travis-ci.com/auth] and click "Sign in with GitHub". Then, click "Authorize application" to allow Travis to access your GitHub account.
 
-Now, enable the GitHub repository of your snap by clicking the "Activate repositories on GitHub" button at [[https://travis-ci.com/profile/], and select the repositories you want to use with Travis CI on [https://github.com/apps/travis-ci]
+Now, enable the GitHub repository of your snap by clicking the "Activate repositories on GitHub" button at [https://travis-ci.com/profile/], and select the repositories you want to use with Travis CI on [https://github.com/apps/travis-ci]
 
 ![Add the GitHub repository to Travis CI](images/3-add-GitHub-repos-to-travis.png)
 
@@ -357,10 +357,12 @@ You should successfully have built your snap in a clean environment, configured 
   - [Snapcraft CI integration documentation], with information about Travis and Launchpad integrations.
 
 [Create your first snap]: /tutorial/create-your-first-snap
+[https://dashboard.snapcraft.io]: https://dashboard.snapcraft.io
 [https://github.com]: https://github.com/
 [https://github.com/new]: https://github.com/new
 [https://travis-ci.com/auth]: https://travis-ci.com/auth
 [https://travis-ci.com/profile/]: https://travis-ci.com/profile/
+[https://github.com/apps/travis-ci]: https://github.com/apps/travis-ci
 [four channels]: https://snapcraft.io/docs/reference/channels#channels
 [CMake `.travis.yml` file]: https://github.com/Crascit/cmake-snap/blob/master/.travis.yml
 [`snapcraft.yaml` file]: https://github.com/Crascit/cmake-snap/blob/master/snap/snapcraft.yaml
