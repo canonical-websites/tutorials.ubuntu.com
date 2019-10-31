@@ -142,7 +142,7 @@ Before we build our snap in Travis CI’s executors, we need to make sure the sn
 
 Positive
 : **The need for a clean environment**
-When you build a snap on your machine, it could be using some dependencies that are already installed but you forgot to declare as `build-packages` in the snapcraft.yaml.
+When you build a snap on your machine, it could be using some dependencies that are already installed but you forgot to declare as `build-packages` in the `snapcraft.yaml`.
 This means that when somebody tries to build the same snap on a different machine, those undeclared packages could be missing and the build would fail.
 A clean environment, such as a default Ubuntu 14.04 or 18.04 in a container, ensures reproducible builds.
 
