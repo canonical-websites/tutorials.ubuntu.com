@@ -144,7 +144,7 @@ Positive
 : **The need for a clean environment**
 When you build a snap on your machine, it could be using some dependencies that are already installed but you forgot to declare as `build-packages` in the `snapcraft.yaml`.
 This means that when somebody tries to build the same snap on a different machine, those undeclared packages could be missing and the build would fail.
-A clean environment, such as a default Ubuntu 14.04 or 18.04 in a container, ensures reproducible builds.
+A clean environment, such as a default Ubuntu 16.04 or 18.04 in a container, ensures reproducible builds.
 
 Let’s install Docker locally, to get the same environment that Travis CI will use to build the snap:
 
@@ -170,7 +170,7 @@ If everything goes well, a message like this one will be printed at the end, wit
 Snapped hello-snap-elopio_2.10_amd64.snap
 ```
 
-If you can build your snap locally, but it fails when building it in the container, it’s likely that you are missing some `build-packages` in the snapcraft.yaml file. Use the error message to identify the missing packages, and try again until you are able to build the snap in a clean environment, without depending on your local machine.
+If you can build your snap locally, but it fails when building it in the container, it’s likely that you are missing some `build-packages` in the `snapcraft.yaml` file. Use the error message to identify the missing packages, and try again until you are able to build the snap in a clean environment, without depending on your local machine.
 
 Once you get the snap building in the Docker container, you can be confident that it will build without problems in Travis CI.
 
@@ -195,7 +195,7 @@ To make the travis command permanently available in your path, you can add those
 Use the command we have just installed to login to your Travis account:
 
 ``` bash
-travis login
+travis login --com
 We need your GitHub login to identify you.
 
 [...]
@@ -212,7 +212,7 @@ Now, from the project directory, run:
 snapcraft enable-ci travis
 ```
 
-It will print a detailed explanation of what’s happening. In the previous steps we made sure to have the project configured in Travis CI, the travis command installed and the .travis.yml file initialized. We have all the needed dependencies mentioned in the first paragraphs.
+It will print a detailed explanation of what’s happening. In the previous steps we made sure to have the project configured in Travis CI, the travis command installed and the `.travis.yml` file initialized. We have all the needed dependencies mentioned in the first paragraphs.
 
 ``` bash
 Snapcraft integration for Travis (CI).
@@ -339,6 +339,9 @@ From now on, every single change in your project will be made available to early
 
 Your final code directory should now have a `.travis.yml` and a `.snapcraft/travis_snapcraft.cfg` like the ones in [this demo repository].
 
+You can also check out the configuration CMake uses to automatically deploy new versions to the Snap Store:
+  - [CMake `.travis.yml` file]
+  - [`snapcraft.yaml` file]
 
 You should successfully have built your snap in a clean environment, configured your project to build the snap continuously on Travis CI, and deliver a new version to the edge channel for every change on your master branch. You can relax because your delivery pipeline is all automated. Now let your community know about this, encourage them to try the edge snap, and to tell their friends how cool it is to get even more testers.
 
@@ -356,10 +359,12 @@ You should successfully have built your snap in a clean environment, configured 
 [Create your first snap]: /tutorial/create-your-first-snap
 [https://github.com]: https://github.com/
 [https://github.com/new]: https://github.com/new
-[https://travis-ci.org/auth]: https://travis-ci.org/auth
-[https://travis-ci.org/profile/]: https://travis-ci.org/profile/
+[https://travis-ci.com/auth]: https://travis-ci.com/auth
+[https://travis-ci.com/profile/]: https://travis-ci.com/profile/
 [four channels]: https://snapcraft.io/docs/reference/channels#channels
-[https://travis-ci.org]: https://travis-ci.org/
+[CMake `.travis.yml` file]: https://github.com/Crascit/cmake-snap/blob/master/.travis.yml
+[`snapcraft.yaml` file]: https://github.com/Crascit/cmake-snap/blob/master/snap/snapcraft.yaml
+[https://travis-ci.com]: https://travis-ci.com/
 [this demo repository]: https://github.com/elopio/hello-snap-elopio
 [use the snapcraft build service]: https://build.snapcraft.io/
 [tutorials]: https://tutorials.ubuntu.com
