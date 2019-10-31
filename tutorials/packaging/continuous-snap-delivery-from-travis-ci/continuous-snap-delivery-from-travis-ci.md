@@ -129,7 +129,7 @@ First, create a file named `.travis.yml` in your project folder, with the follow
 language: bash
 ```
 
-Later you can use Travis CI to run your tests. For that you will have to adjust this file depending on the language of your project, and add the install and script steps to test and build your snap before publishing. However, we don’t need any of that yet - as we’ll just focus on continuous delivery to the store.
+Later you can use Travis CI to run your tests. For that, you will have to adjust this file depending on the language of your project, and add the install and script steps to test and build your snap before publishing. However, we don’t need any of that yet - as we’ll just focus on continuous delivery to the store.
 
 In the next step, we’ll make sure that your snap can be built successfully in Travis CI, so we can push the generated snap to the store.
 
