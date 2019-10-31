@@ -55,7 +55,7 @@ If you already have your project in GitHub packaged as a snap, you can skip this
 
 Let’s set up one GitHub project here, in case you don’t have one ready.
 
-First, go to [https://github.com] and sign up. Then, go to [https://github.com/new] where we will fill the details of our new repository. The only required field is the repository name where you can enter something like `hello-snap-yourusername`. That might look something like this:
+First, go to [https://github.com] and sign up. Then, go to [https://github.com/new] where we will fill in the details of our new repository. The only required field is the repository name where you can enter something like `hello-snap-yourusername`. That might look something like this:
 
 ![a new GitHub repository named hello-world-snap](images/2-create-new-GitHub-repo.png)
 
