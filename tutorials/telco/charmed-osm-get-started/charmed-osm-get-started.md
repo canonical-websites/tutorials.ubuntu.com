@@ -223,44 +223,48 @@ That’s it! Your local OpenStack cluster is up and running. You can interact wi
 In order to configure MicroStack, so that it could be used as a VIM for Charmed OSM, add Ubuntu image:
 
 ```bash
-$ wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
---2019-11-10 20:59:45--  https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
+$ wget https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+--2019-11-12 17:25:01--  https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
 Resolving cloud-images.ubuntu.com (cloud-images.ubuntu.com)... 91.189.88.89, 2001:67c:1560:8001::8001
 Connecting to cloud-images.ubuntu.com (cloud-images.ubuntu.com)|91.189.88.89|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img [following]
+--2019-11-12 17:25:02--  https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+Reusing existing connection to cloud-images.ubuntu.com:443.
 HTTP request sent, awaiting response... 200 OK
-Length: 344522752 (329M) [application/octet-stream]
-Saving to: ‘bionic-server-cloudimg-amd64.img’
+Length: 296878080 (283M) [application/octet-stream]
+Saving to: ‘ubuntu-16.04-server-cloudimg-amd64-disk1.img.1’
 
-bionic-server-cloudimg-amd64.img                   100%[================================================================================================================>] 328.56M  16.9MB/s    in 21s     
+ubuntu-16.04-server-cloudimg-amd64-disk1.img.1     100%[================================================================================================================>] 283.12M  24.2MB/s    in 10s     
 
-2019-11-10 21:00:06 (15.6 MB/s) - ‘bionic-server-cloudimg-amd64.img’ saved [344522752/344522752]
+2019-11-12 17:25:12 (27.7 MB/s) - ‘ubuntu-16.04-server-cloudimg-amd64-disk1.img.1’ saved [296878080/296878080]
 
 $ microstack.openstack image create \
-                       --public \
-                       --disk-format qcow2 \
-                       --container-format bare \
-                       --file bionic-server-cloudimg-amd64.img \
-                       ubuntu1804
+                     --public \
+                     --disk-format qcow2 \
+                     --container-format bare \
+                     --file ubuntu-16.04-server-cloudimg-amd64-disk1.img \
+                     ubuntu1604
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field            | Value                                                                                                                                                                                      |
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| checksum         | f2972ae88a2b5559be34a70334b565bd                                                                                                                                                           |
+| checksum         | b6515bf62f9c3132db1afd9e0f8ad3ea                                                                                                                                                           |
 | container_format | bare                                                                                                                                                                                       |
-| created_at       | 2019-11-10T21:00:36Z                                                                                                                                                                       |
+| created_at       | 2019-11-12T17:26:27Z                                                                                                                                                                       |
 | disk_format      | qcow2                                                                                                                                                                                      |
-| file             | /v2/images/4e7799dc-d186-40b0-a2c0-cbdeec4ac39d/file                                                                                                                                       |
-| id               | 4e7799dc-d186-40b0-a2c0-cbdeec4ac39d                                                                                                                                                       |
+| file             | /v2/images/360204d3-adcf-49ec-abb3-51816836faab/file                                                                                                                                       |
+| id               | 360204d3-adcf-49ec-abb3-51816836faab                                                                                                                                                       |
 | min_disk         | 0                                                                                                                                                                                          |
 | min_ram          | 0                                                                                                                                                                                          |
-| name             | ubuntu1804                                                                                                                                                                                 |
-| owner            | a22028828c1f4ee9b684cd7e83432c27                                                                                                                                                           |
-| properties       | os_hash_algo='sha512', os_hash_value='4c1abdd4366b2083f875c0d14436e6b64fc62fd3feafdf55dad00c78cc530ab5ca286b8c030731981a38479dda1ff4e6f44f64f3bafbed6f002a21c5da7a9bd2', os_hidden='False' |
+| name             | ubuntu1604                                                                                                                                                                                 |
+| owner            | 249ddaebc6924a63b44b24d28ae1aa9d                                                                                                                                                           |
+| properties       | os_hash_algo='sha512', os_hash_value='7ea215276496dca550a318d07f582ed8eda5eee2e674884dce09504aaacf3fd2976b030c4618d575e413865e5cbd278c2e297a8f37b883b7b6946a9fd010b1e5', os_hidden='False' |
 | protected        | False                                                                                                                                                                                      |
 | schema           | /v2/schemas/image                                                                                                                                                                          |
-| size             | 344522752                                                                                                                                                                                  |
+| size             | 296878080                                                                                                                                                                                  |
 | status           | active                                                                                                                                                                                     |
 | tags             |                                                                                                                                                                                            |
-| updated_at       | 2019-11-10T21:00:38Z                                                                                                                                                                       |
+| updated_at       | 2019-11-12T17:26:30Z                                                                                                                                                                       |
 | virtual_size     | None                                                                                                                                                                                       |
 | visibility       | public                                                                                                                                                                                     |
 +------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
