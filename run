@@ -343,7 +343,7 @@ case $run_command in
         # Read optional arguments
         detach=""
         forward_ports=("")
-        run_watcher=false
+        run_watcher=true
         while [[ -n "${1:-}" ]] && [[ "${1:0:1}" == "-" ]]; do
             key="$1"
 
