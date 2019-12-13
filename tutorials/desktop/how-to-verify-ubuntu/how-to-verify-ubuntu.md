@@ -41,6 +41,8 @@ These are part of the `coreutils` and `gnupg` packages, which are installed by d
 
 If you are using bash on Windows 10 (why on earth not? See [this tutorial][tut-windows-bash]), these tools are part of the default install.
 
+You may also use [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell).
+
 ### For macOS
 
 You can install the latest GnuPG using [Homebrew][homebrew]:
@@ -210,6 +212,24 @@ ubuntu-18.04-desktop-amd64.iso: OK
 ```
 
 If you get no results (or any result other than that shown above) then the ISO file does not match the checksum. This could be because the ISO has been altered, or it downloaded incorrectly - either way you should download a fresh ISO from a known good source.
+
+### Windows (PowerShell)
+
+You can use PowerShell's [Get-FileHash](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash) command, like so:
+
+```bash
+PowerShell -Command (Get-FileHash 'ubuntu-18.04.3-live-server-amd64.iso' -Algorithm SHA256).Hash
+```
+
+The output will be a series of digits and letters.
+
+Vies the SHA256SUMS file with
+
+```bash
+type SHA256SUMS
+```
+
+Now check that the hash displayed with the above command is in the SHA256SUMS file. This can be a case-insensitive match, meaning *B6* is the same as *b6*.
 
 ## What's next?
 
