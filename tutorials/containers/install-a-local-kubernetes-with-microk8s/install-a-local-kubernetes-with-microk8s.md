@@ -96,9 +96,12 @@ channels:
 
 positive
 : You may need to configure your firewall to allow pod-to-pod and pod-to-internet communication:
+  (192.168.1.xx should be substituted for the master node ip address) 
 ```
 sudo ufw allow in on cni0 && sudo ufw allow out on cni0
 sudo ufw default allow routed
+sudo ufw allow in on eth0 from 192.168.1.xx to any proto tcp port 10255
+sudo ufw allow in on eth0 from 192.168.1.xx to any proto tcp port 25000
 ```
 
 
