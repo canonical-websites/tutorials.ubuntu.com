@@ -61,7 +61,7 @@ Duration: 3:00
 Juju client is available on many platforms and distributions. If you are running **Ubuntu**, you can install Juju client by running the following command:
 `sudo snap install juju --classic`
 
-If you are using other **Linux** distribution, you have to install snapd firt. Refer to [Snapd documentation][snapd] for more information on installing snapd on your Linux distribution.
+If you are using other **Linux** distribution, you have to install snapd first. Refer to [Snapd documentation][snapd] for more information on installing snapd on your Linux distribution.
 
 If you are using other OS than Linux, such as **macOS** or **Windows**, refer to [Juju documentation][jujuinstall].
 
@@ -77,7 +77,7 @@ Learn more about Juju by visiting the [official documentation][jujustarted].
 Kubectl is available on many platforms and distributions. If you are running **Ubuntu**, you can install kubectl by running the following command:
 `sudo snap install kubectl --classic`
 
-If you are using other **Linux** distribution, you have to install snapd firt. Refer to [Snapd documentation][snapd] for more information on installing snapd on your Linux distribution.
+If you are using other **Linux** distribution, you have to install snapd first. Refer to [Snapd documentation][snapd] for more information on installing snapd on your Linux distribution.
 
 If you are using **macOS**, run:
 `brew install kubectl`
