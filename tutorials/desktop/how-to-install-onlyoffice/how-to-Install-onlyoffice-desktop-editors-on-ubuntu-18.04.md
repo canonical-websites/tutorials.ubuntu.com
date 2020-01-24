@@ -28,7 +28,7 @@ The benefits offered by ONLYOFFICE Desktop Editors run as follows:
 To read more about the latest features in ONLYOFFICE Desktop Editors, you may refer to [the official documentation](https://helpcenter.onlyoffice.com/desktop/documents/allplatforms/desktop-editors-changelog.aspx).
 
 **WHAT YOU’LL LEARN**
-Three main ways to install ONLYOFFICE Desktop Editors on Ubuntu 18.04.
+Four main ways to install ONLYOFFICE Desktop Editors on Ubuntu 18.04.
 
 **WHAT YOU’LL NEED**
 * System requirements:
@@ -70,6 +70,13 @@ Another way to use ONLYOFFICE Desktop Editors on Ubuntu 18.04 is running it as A
              $ wget https://github.com/ONLYOFFICE/appimage-desktopeditors/releases/download/v5.1.29/DesktopEditors-x86_64.AppImage
              $ chmod a+x DesktopEditors-x86_64.AppImage
              $ ./DesktopEditors-x86_64.AppImage
+             
+**4.ONLYOFFICE Desktop Editors are also available as Flatpak**
+To install ONLYOFFICE Desktop Editors from Flathub, you'll need to install Flatpak and add the Flathub repository. You can find instructions for how to do this on [the official site](https://flatpak.org/setup/).
+
+Now, you can install ONLYOFFICE Desktop Editors from Flathub on Ubuntu 18.04 by using this command:
+
+```flatpak install flathub org.onlyoffice.desktopeditors```
 
  ---
 
